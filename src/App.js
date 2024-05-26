@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import st from "./app.module.css";
+import { Task } from "./components/task/task";
+import { TaskList } from "./components/taskList/taskList";
 
+let Tasks = [
+	{ name: "Task1", time: 10 },
+	{ name: "Task2", time: 20 },
+	{ name: "Task3", time: 30 },
+	{ name: "Task4", time: 40 },
+	{ name: "Task5", time: 40 },
+];
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className={st.main}>
+			<TaskList>
+				{Tasks.map((task, id) => (
+					<Task name={task.name} timeToDo={task.time} key={id} />
+				))}
+			</TaskList>
+		</div>
+	);
 }
 
 export default App;
