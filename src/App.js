@@ -16,6 +16,9 @@ function App() {
 				<QuantumInput />
 				<button className={`${st.submitBtn} ${st.txt}`}>Execute</button>
 				<button className={`${st.submitBtn} ${st.txt}`}>Auto start</button>
+				<button className={`${st.submitBtn} ${st.txt} ${st.testGenBtn}`}>
+					Auto test-gen
+				</button>
 			</div>
 		</div>
 	);

@@ -18,15 +18,22 @@
 .quantum {
 	display: flex;
 	gap: 5px;
+	margin-right: 40px;
 }
 
 .submitBtn {
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 	border-radius: 10px;
 }
 
 .submitBtn:hover {
 	scale: 1.1;
+}
+
+.currentQuantum {
+	padding: 10px;
+	border: 1px solid white;
+	border-radius: 10px;
 }

@@ -12,6 +12,9 @@ export const QuantumInput = () => {
 			<button className={st.submitBtn}>
 				<img className={st.submitImg} src={inputIcon} alt="Записать квант времени" />
 			</button>
+			<div className={st.currentQuantum}>
+				<p className={st.txt}>5</p>
+			</div>
 		</div>
 	);
 };
