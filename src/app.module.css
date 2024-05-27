@@ -1,2 +1,38 @@
 .main {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding-top: 30px;
+}
+
+.tasks_menu {
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+	padding: 0 50px 0 50px;
+}
+
+.start_btns {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 10px 60px 0 0;
+	gap: 10px;
+}
+
+.submitBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	background-color: #233ea9;
+	border-radius: 13px;
+	padding: 10px;
+}
+
+.txt {
+	font-family: "Poppins";
+	font-weight: 600;
+	color: white;
+	font-size: 17px;
 }

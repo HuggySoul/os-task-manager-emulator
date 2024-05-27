@@ -1,22 +1,22 @@
 import st from "./app.module.css";
-import { Task } from "./components/task/task";
-import { TaskList } from "./components/taskList/taskList";
+import { QuantumInput } from "./components/quantumInput/quantumInput";
+import { NewTasks } from "./components/newTasks/newTasks";
+import { ProcessList } from "./components/processList/processList";
+import { CompletedTasks } from "./components/completedTasks/completedTasks";
 
-let Tasks = [
-	{ name: "Task1", time: 10 },
-	{ name: "Task2", time: 20 },
-	{ name: "Task3", time: 30 },
-	{ name: "Task4", time: 40 },
-	{ name: "Task5", time: 40 },
-];
 function App() {
 	return (
 		<div className={st.main}>
-			<TaskList>
-				{Tasks.map((task, id) => (
-					<Task name={task.name} timeToDo={task.time} key={id} />
-				))}
-			</TaskList>
+			<div className={st.tasks_menu}>
+				<NewTasks />
+				<ProcessList />
+				<CompletedTasks />
+			</div>
+			<div className={st.start_btns}>
+				<QuantumInput />
+				<button className={`${st.submitBtn} ${st.txt}`}>Execute</button>
+				<button className={`${st.submitBtn} ${st.txt}`}>Auto start</button>
+			</div>
 		</div>
 	);
 }

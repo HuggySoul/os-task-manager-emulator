@@ -1,0 +1,15 @@
+.newTasks {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	width: 400px;
+	max-height: 750px;
+	gap: 10px;
+	overflow-y: auto;
+}

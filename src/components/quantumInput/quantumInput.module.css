@@ -1,0 +1,32 @@
+.txt {
+	font-family: "Poppins";
+	font-weight: 600;
+	color: white;
+	font-size: 17px;
+}
+
+.input {
+	border-radius: 20px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.input_time {
+	width: 70px;
+}
+
+.quantum {
+	display: flex;
+	gap: 5px;
+}
+
+.submitBtn {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	border-radius: 10px;
+}
+
+.submitBtn:hover {
+	scale: 1.1;
+}

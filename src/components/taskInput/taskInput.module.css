@@ -1,0 +1,33 @@
+.input_Block {
+	display: flex;
+	gap: 10px;
+}
+.input {
+	border-radius: 20px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.input_name {
+	width: 50%;
+}
+.input_time {
+	width: 15%;
+}
+
+.styled_input::placeholder {
+}
+
+.submitBtn {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	border-radius: 10px;
+}
+
+.submitImg {
+	border-radius: 20px;
+}
+.submitBtn:hover {
+	scale: 1.1;
+}

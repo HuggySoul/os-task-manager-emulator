@@ -1,0 +1,27 @@
+.btn_block {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 10px;
+}
+
+.btn_clear {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	background-color: #233ea9;
+	border-radius: 13px;
+	padding: 10px;
+}
+
+.btn_clear:hover {
+	scale: 1.05;
+}
+
+.clear_txt {
+	font-family: "Poppins";
+	font-weight: 600;
+	color: white;
+	font-size: 17px;
+}

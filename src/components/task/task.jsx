@@ -4,7 +4,7 @@ export const Task = ({ name, timeToDo }) => {
 	return (
 		<div className={st.main}>
 			<p>{name}</p>
-			<p>Время выполнения:{timeToDo}</p>
+			<p>Execution time:{timeToDo}</p>
 		</div>
 	);
 };

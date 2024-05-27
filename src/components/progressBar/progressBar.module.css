@@ -1,0 +1,64 @@
+.task {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.progress_bar {
+	width: 100%;
+	height: 60px;
+	background: linear-gradient(to right, #676767, #676767 19px, #c4c4c4 20px);
+	border-radius: 30px;
+	overflow: hidden;
+	box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+.progress_fill {
+	height: 100%;
+	background: linear-gradient(to right, #32deaa, #32deea);
+	position: relative;
+	border-radius: 30px 0 0 30px;
+}
+
+.progress_wave {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.1);
+	opacity: 0.7;
+	transform: rotate(5deg);
+	animation: wave 2s linear infinite;
+}
+
+.txt {
+	padding-left: 20px;
+	font-family: "Poppins";
+	font-weight: 600;
+	color: white;
+	font-size: 15px;
+}
+
+@keyframes wave {
+	0% {
+		top: 0;
+	}
+	50% {
+		top: -8px;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+.progress_text {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 21px;
+	font-weight: bold;
+	color: #555;
+}
