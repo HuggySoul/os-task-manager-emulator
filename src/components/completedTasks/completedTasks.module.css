@@ -21,3 +21,23 @@
 	gap: 10px;
 	overflow-y: auto;
 }
+
+.empty_list {
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	width: 400px;
+	height: 750px;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid white;
+	border-radius: 30px;
+}
+
+.empty_txt {
+	font-family: "Poppins";
+	font-weight: 600;
+	color: white;
+	font-size: 20px;
+	opacity: 50%;
+}

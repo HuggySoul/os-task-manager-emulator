@@ -6,6 +6,27 @@
 	max-height: 750px;
 	gap: 10px;
 	overflow-y: auto;
+	border-radius: 30px;
+}
+
+.empty_List {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border: 1px solid white;
+	border-radius: 30px;
+	height: 750px;
+	width: 600px;
+	justify-content: center;
+	padding: 5px;
+}
+
+.empty_txt {
+	font-family: "Poppins";
+	font-weight: 600;
+	color: white;
+	font-size: 20px;
+	opacity: 50%;
 }
 
 .txt {

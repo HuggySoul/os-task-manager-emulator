@@ -1,31 +1,38 @@
 import st from "./completedTasks.module.css";
 import { ClearBtn } from "../clearBtn/clearBtn";
 import { Task } from "../task/task";
+import TasksStore from "../../store/toDo";
+import { useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
 
-let tasks = [
-	{ name: "Task1", time: 10 },
-	{ name: "Task2", time: 20 },
-	{ name: "Task3", time: 30 },
-	{ name: "Task4", time: 40 },
-	{ name: "Task5", time: 40 },
-	{ name: "Task5", time: 40 },
-	{ name: "Task5", time: 40 },
-	{ name: "Task5", time: 40 },
-	{ name: "Task5", time: 40 },
-	{ name: "Task5", time: 40 },
-	{ name: "Task5", time: 40 },
-];
+export const CompletedTasks = observer(() => {
+	const [isListEmpty, setIsListEmpty] = useState(true);
 
-export const CompletedTasks = () => {
+	const checkEmpty = () => {
+		if (TasksStore.completedTasks.length) setIsListEmpty(false);
+		else setIsListEmpty(true);
+	};
+	console.log(isListEmpty);
+	useEffect(() => {
+		checkEmpty();
+	}, [TasksStore.completedTasks.length]);
+
 	return (
 		<div className={st.completed}>
 			<p className={st.txt}>Completed Tasks</p>
-			<div className={st.list}>
-				{tasks.map((task, id) => (
-					<Task name={task.name} timeToDo={task.time} key={id} />
-				))}
+			<div className={isListEmpty ? st.empty_list : st.list}>
+				{isListEmpty ? (
+					<>
+						<p className={st.empty_txt}>The completed tasks </p>
+						<p className={st.empty_txt}>will be located here</p>
+					</>
+				) : (
+					TasksStore.completedTasks.map((task, id) => (
+						<Task name={task.name} timeToDo={task.time} key={id} />
+					))
+				)}
 			</div>
-			<ClearBtn />
+			<ClearBtn clearTaskList={() => TasksStore.clearCompletedTaskList()} />
 		</div>
 	);
-};
+});
