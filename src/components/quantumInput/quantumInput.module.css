@@ -1,8 +1,21 @@
+.quantum_block {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
 .txt {
 	font-family: "Poppins";
 	font-weight: 600;
 	color: white;
 	font-size: 17px;
+}
+
+.attentionTxt {
+	color: red;
+	font-size: 10px;
 }
 
 .input {

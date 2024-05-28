@@ -8,12 +8,12 @@ import { useEffect, useState } from "react";
 
 export const NewTasks = observer(() => {
 	const [isListEmpty, setIsListEmpty] = useState(true);
-	console.log(isListEmpty);
 
 	const checkEmpty = () => {
 		if (TasksStore.tasksToDo.length) setIsListEmpty(false);
 		else setIsListEmpty(true);
 	};
+	console.log(TasksStore.quantum);
 
 	useEffect(() => {
 		checkEmpty();

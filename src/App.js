@@ -3,6 +3,7 @@ import { QuantumInput } from "./components/quantumInput/quantumInput";
 import { NewTasks } from "./components/newTasks/newTasks";
 import { ProcessList } from "./components/processList/processList";
 import { CompletedTasks } from "./components/completedTasks/completedTasks";
+import taskScheduler from "./features/taskScheduler";
 
 function App() {
 	return (
@@ -14,8 +15,18 @@ function App() {
 			</div>
 			<div className={st.start_btns}>
 				<QuantumInput />
-				<button className={`${st.submitBtn} ${st.txt}`}>Execute</button>
-				<button className={`${st.submitBtn} ${st.txt}`}>Auto start</button>
+				<button
+					onClick={() => taskScheduler.getNextTask()}
+					className={`${st.submitBtn} ${st.txt}`}
+				>
+					Execute
+				</button>
+				<button
+					onClick={() => taskScheduler.getAllTasks()}
+					className={`${st.submitBtn} ${st.txt}`}
+				>
+					Auto start
+				</button>
 				<button className={`${st.submitBtn} ${st.txt} ${st.testGenBtn}`}>
 					Auto test-gen
 				</button>

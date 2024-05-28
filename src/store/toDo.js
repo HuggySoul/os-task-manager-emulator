@@ -1,35 +1,24 @@
 import { makeAutoObservable } from "mobx";
 
-class Tasks {
+class TaskStorage {
 	tasksToDo = [];
 	completedTasks = [
-		{ name: "Task1", time: 10 },
-		{ name: "Task2", time: 20 },
-		{ name: "Task3", time: 30 },
-		{ name: "Task4", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 100 },
+		// { name: "Task1", time: 10 },
+		// { name: "Task2", time: 20 },
+		// { name: "Task3", time: 30 },
+		// { name: "Task4", time: 40 },
+		// { name: "Task5", time: 40 },
+		// { name: "Task5", time: 40 },
+		// { name: "Task5", time: 40 },
+		// { name: "Task5", time: 40 },
+		// { name: "Task5", time: 40 },
+		// { name: "Task5", time: 40 },
+		// { name: "Task5", time: 40 },
+		// { name: "Task5", time: 100 },
 	];
-	tasksInProcess = [
-		{ name: "Task1", time: 10 },
-		{ name: "Task2", time: 20 },
-		{ name: "Task3", time: 30 },
-		{ name: "Task4", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 40 },
-		{ name: "Task5", time: 100 },
-	];
+	tasksInProcess = [[]];
+
+	quantum = 0;
 
 	constructor() {
 		makeAutoObservable(this);
@@ -43,6 +32,10 @@ class Tasks {
 		this.tasksToDo.push(task);
 	}
 
+	addProcessingTask(task) {
+		this.tasksInProcess.push(task);
+	}
+
 	clearCompletedTaskList() {
 		this.completedTasks = [];
 	}
@@ -52,4 +45,4 @@ class Tasks {
 	}
 }
 
-export default new Tasks();
+export default new TaskStorage();

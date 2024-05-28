@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
-	width: 25vw;
+	width: 35vw;
 	height: 75vh;
 	gap: 10px;
 	overflow-y: auto;
@@ -15,7 +15,7 @@
 	flex-direction: column;
 	border: 1px solid white;
 	border-radius: 30px;
-	width: 25vw;
+	width: 35vw;
 	height: 75vh;
 	justify-content: center;
 	padding: 5px;
