@@ -48,3 +48,14 @@
 	font-weight: bold;
 	color: #555;
 }
+
+@media (max-width: 1400px) {
+	.progress_text {
+		font-size: 19px;
+	}
+}
+@media (max-width: 1000px) {
+	.progress_text {
+		font-size: 16px;
+	}
+}

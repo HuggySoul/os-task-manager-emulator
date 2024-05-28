@@ -1,6 +1,6 @@
 .btn_block {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: flex-end;
 	align-items: center;
 	padding-left: 10px;
 }
@@ -11,7 +11,7 @@
 	justify-content: center;
 	color: white;
 	background-color: #233ea9;
-	border-radius: 13px;
+	border-radius: 10px;
 	padding: 10px;
 }
 

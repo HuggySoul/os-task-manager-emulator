@@ -1,8 +1,9 @@
 .main {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	flex-direction: column;
 	padding-top: 30px;
+	height: 100vh;
 }
 
 .tasks_menu {
@@ -16,8 +17,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 10px 60px 0 0;
 	gap: 10px;
+	padding-bottom: 30px;
 }
 
 .submitBtn {
@@ -39,4 +40,10 @@
 	font-weight: 600;
 	color: white;
 	font-size: 17px;
+}
+
+@media (max-height: 850px) {
+	.txt {
+		font-size: 15px;
+	}
 }

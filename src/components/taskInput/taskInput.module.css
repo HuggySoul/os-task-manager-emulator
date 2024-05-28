@@ -1,7 +1,9 @@
 .input_Block {
 	display: flex;
-	gap: 10px;
+	width: 25vw;
+	justify-content: space-between;
 }
+
 .input {
 	border-radius: 20px;
 	padding: 10px;

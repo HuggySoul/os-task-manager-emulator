@@ -26,7 +26,6 @@ export const ProcessList = () => {
 		if (TasksStore.tasksInProcess.length) setIsListEmpty(false);
 		else setIsListEmpty(true);
 	};
-
 	useEffect(() => {
 		checkEmpty();
 	}, [TasksStore.tasksInProcess.length]);
@@ -41,7 +40,7 @@ export const ProcessList = () => {
 						<p className={st.empty_txt}>will be located here</p>
 					</>
 				) : (
-					Tasks.map((task, id) => (
+					TasksStore.tasksInProcess.map((task, id) => (
 						<ProgressBar percentage={task.time} taskName={task.name} key={id} />
 					))
 				)}

@@ -8,8 +8,8 @@
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
-	width: 400px;
-	max-height: 750px;
+	width: 25vw;
+	height: 75vh;
 	gap: 10px;
 	overflow-y: auto;
 }
@@ -18,8 +18,8 @@
 	display: flex;
 	flex-direction: column;
 	padding: 5px;
-	width: 400px;
-	height: 750px;
+	width: 25vw;
+	height: 75vh;
 	align-items: center;
 	justify-content: center;
 	border: 1px solid white;
@@ -31,4 +31,10 @@
 	color: white;
 	font-size: 20px;
 	opacity: 50%;
+}
+
+@media (max-width: 1330px) {
+	.empty_txt {
+		font-size: 16px;
+	}
 }
