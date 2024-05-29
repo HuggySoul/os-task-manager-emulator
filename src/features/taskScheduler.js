@@ -18,6 +18,8 @@ class TaskScheduler {
 
 	getAllTasks = () => {
 		TaskStorage.tasksToDo.forEach((task) => {
+			if (!TaskStorage.tasksInProcess[0]) TaskStorage.tasksInProcess.push([]);
+
 			TaskStorage.tasksInProcess[0].push(task);
 		});
 	};

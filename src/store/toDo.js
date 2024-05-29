@@ -16,9 +16,9 @@ class TaskStorage {
 		// { name: "Task5", time: 40 },
 		// { name: "Task5", time: 100 },
 	];
-	tasksInProcess = [[]];
+	tasksInProcess = [];
 
-	quantum = 0;
+	quantum = 1;
 
 	constructor() {
 		makeAutoObservable(this);
