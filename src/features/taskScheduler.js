@@ -42,10 +42,15 @@ class TaskScheduler {
 	setCurrentQueue(queueNum) {
 		console.log("Макс очередь:", TaskStorage.MAX_QUEUE_QUANTITY);
 		for (let queue = queueNum; queue < TaskStorage.MAX_QUEUE_QUANTITY; queue++) {
+			if (queue === TaskStorage.MAX_QUEUE_QUANTITY - 1) {
+				console.log("Обнулило");
+				TaskStorage.MAX_TIME = 1;
+			}
 			//проверка на наличие очередей
 			if (TaskStorage.tasksInProcess[queue]) {
 				//проверка на наличие элемента в очереди
 				if (TaskStorage.tasksInProcess[queue][0]) {
+					TaskStorage.setMaxTime(0);
 					queueNum = queue;
 					this.QueueNum = queue;
 					return queueNum;
@@ -63,6 +68,7 @@ class TaskScheduler {
 				console.log("Очереди закончились :(");
 				TaskStorage.tasksInProcess = [];
 				this.QueueNum = 0;
+				TaskStorage.setMaxTime(1);
 				return;
 			}
 		}

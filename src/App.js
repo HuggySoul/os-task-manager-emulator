@@ -4,8 +4,14 @@ import { NewTasks } from "./components/newTasks/newTasks";
 import { ProcessList } from "./components/processList/processList";
 import { CompletedTasks } from "./components/completedTasks/completedTasks";
 import taskScheduler from "./features/taskScheduler";
+import { TestGenerator } from "./components/testGenerator/testGenerator";
+import { useRef, useState } from "react";
 
 function App() {
+	//флаг для открытия окна с генерацией тестов
+	const [isGenVisible, setIsGenVisible] = useState(false);
+	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
+
 	return (
 		<div className={st.main}>
 			<div className={st.tasks_menu}>
@@ -14,6 +20,11 @@ function App() {
 				<CompletedTasks />
 			</div>
 			<div className={st.start_btns}>
+				{isGenVisible ? (
+					<TestGenerator openBtnRef={testBtnRef} setVisibleFlag={setIsGenVisible} />
+				) : (
+					<></>
+				)}
 				<QuantumInput />
 				<button
 					onClick={() => taskScheduler.execute()}
@@ -27,7 +38,11 @@ function App() {
 				>
 					Auto start
 				</button>
-				<button className={`${st.submitBtn} ${st.txt} ${st.testGenBtn}`}>
+				<button
+					ref={testBtnRef}
+					onClick={() => setIsGenVisible(!isGenVisible)}
+					className={`${st.submitBtn} ${st.txt} ${st.testGenBtn}`}
+				>
 					Auto test-gen
 				</button>
 			</div>

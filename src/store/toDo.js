@@ -53,14 +53,24 @@ class TaskStorage {
 
 	clearTaskToDoList() {
 		this.tasksToDo = [];
+		this.MAX_TIME = 1;
 	}
 
 	setMaxQueueQuantity() {
+		console.log("quantum:", this.quantum);
 		this.MAX_QUEUE_QUANTITY = Math.round(this.MAX_TIME / this.quantum);
+		console.log("MAX_QUEUE_QUANTITY", this.MAX_QUEUE_QUANTITY);
 	}
 
 	setMaxTime(time) {
-		if (time > this.MAX_TIME) this.MAX_TIME = time;
+		console.log("MAX_TIME:", this.MAX_TIME);
+		console.log(time);
+		if (Number(time) > this.MAX_TIME) {
+			console.log("Пришедшее время: ", time);
+			this.MAX_TIME = time;
+		} else {
+			console.log("нет");
+		}
 	}
 }
 
