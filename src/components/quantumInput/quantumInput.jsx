@@ -26,6 +26,7 @@ export const QuantumInput = observer(() => {
 	//устанавливаем значение кванта в хранилище
 	const setQuantumStorage = () => {
 		TasksStorage.quantum = quantum;
+		TasksStorage.setMaxQueueQuantity();
 	};
 
 	//устанавливаем состояние кванта в форме

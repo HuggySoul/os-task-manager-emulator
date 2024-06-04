@@ -16,7 +16,7 @@ function App() {
 			<div className={st.start_btns}>
 				<QuantumInput />
 				<button
-					onClick={() => taskScheduler.getNextTask()}
+					onClick={() => taskScheduler.execute()}
 					className={`${st.submitBtn} ${st.txt}`}
 				>
 					Execute

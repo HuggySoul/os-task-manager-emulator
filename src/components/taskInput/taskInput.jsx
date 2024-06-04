@@ -7,6 +7,8 @@ export const TaskInput = () => {
 	const [task, setTask] = useState({});
 
 	const addTask = () => {
+		TasksStore.setMaxTime(task.time);
+		TasksStore.setMaxQueueQuantity();
 		TasksStore.addNewTask(task);
 	};
 

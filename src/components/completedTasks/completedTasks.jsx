@@ -12,7 +12,7 @@ export const CompletedTasks = observer(() => {
 		if (TasksStore.completedTasks.length) setIsListEmpty(false);
 		else setIsListEmpty(true);
 	};
-	console.log(isListEmpty);
+	// console.log(isListEmpty);
 	useEffect(() => {
 		checkEmpty();
 	}, [TasksStore.completedTasks.length]);
