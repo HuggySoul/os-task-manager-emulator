@@ -4,6 +4,23 @@
 	justify-content: space-between;
 }
 
+.attention {
+	display: flex;
+	flex-direction: column;
+	gap: 5%;
+	width: 25vw;
+	justify-content: center;
+}
+
+.attention_txt {
+	font-family: "Poppins";
+	font-weight: 600;
+	font-size: 15px;
+	color: red;
+	font-size: 10px;
+	padding-left: 5%;
+}
+
 .input {
 	border-radius: 20px;
 	padding: 10px;

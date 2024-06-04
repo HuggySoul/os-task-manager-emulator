@@ -1,17 +1,21 @@
 import st from "./quantumInput.module.css";
 import inputIcon from "./assets/inputIcon.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import TasksStorage from "../../store/toDo";
 import { observer } from "mobx-react-lite";
 
 export const QuantumInput = observer(() => {
 	const [quantum, setQuantum] = useState(1);
 	const [attention, setAttention] = useState(false);
+	const inputRef = useRef(null);
 
 	useEffect(() => {
 		//при нажатии enter сохраняем квант в хранилище
 		const listener = (event) => {
-			if (event.code === "Enter" || event.code === "NumpadEnter") {
+			if (
+				document.activeElement === inputRef.current &&
+				(event.code === "Enter" || event.code === "NumpadEnter")
+			) {
 				event.preventDefault();
 				setQuantumStorage();
 				setWarning(TasksStorage.quantum);
@@ -43,6 +47,7 @@ export const QuantumInput = observer(() => {
 		<div className={st.quantum_block}>
 			<div className={st.quantum}>
 				<input
+					ref={inputRef}
 					type="number"
 					className={`${st.input} ${st.input_time}`}
 					placeholder="quantum"
