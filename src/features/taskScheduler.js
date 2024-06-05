@@ -1,7 +1,7 @@
 import TaskStorage from "../store/taskStorage";
 
 class TaskScheduler {
-	QueueNum = 0;
+	QueueNum = 0; // номер приоритетно очереди(та, задачи из которой выполняем)
 
 	getAllTasks = () => {
 		TaskStorage.tasksToDo.forEach((task) => {
@@ -38,10 +38,11 @@ class TaskScheduler {
 		storage[nextQueue].push(task);
 	};
 
-	//Задаём приоритетную очередь(ту, задачи из которой выполняем)
+	//Задаём приоритетную очередь
 	setCurrentQueue(queueNum) {
 		console.log("Макс очередь:", TaskStorage.MAX_QUEUE_QUANTITY);
 		for (let queue = queueNum; queue < TaskStorage.MAX_QUEUE_QUANTITY; queue++) {
+			//обнуляем максимальное время, чтобы избежать ошибок при работе без перезагрузки web-страницы
 			if (queue === TaskStorage.MAX_QUEUE_QUANTITY - 2) {
 				console.log("Обнулило");
 				TaskStorage.MAX_TIME = 0;
@@ -59,12 +60,13 @@ class TaskScheduler {
 		}
 	}
 
+	//выполнение одной задачи на величину кванта
 	taskProcessing = (queueNum) => {
 		//проверяем, остались ли в текущей очереди элементы
 		if (!TaskStorage.tasksInProcess[queueNum][0]) {
 			queueNum = this.setCurrentQueue(queueNum);
+			//действия после прохождения всех очередей
 			if (!queueNum) {
-				//#todo: баг иногда после выполнения последней задачи она не пушится в completedTasks
 				console.log("Очереди закончились :(");
 				TaskStorage.tasksInProcess = [];
 				this.QueueNum = 0;
@@ -91,7 +93,14 @@ class TaskScheduler {
 	execute = () => {
 		this.getOneNewTask();
 		this.taskProcessing(this.QueueNum);
-		TaskStorage.makeChange();
+		TaskStorage.makeChange(); // необходимо для отслеживания изменений внутри очередей
+	};
+
+	autoComplete = () => {
+		let timerId = setInterval(() => {
+			this.execute();
+			if (!TaskStorage.tasksInProcess[0]) clearInterval(timerId);
+		}, 150);
 	};
 }
 

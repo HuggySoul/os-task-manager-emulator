@@ -33,7 +33,7 @@ function App() {
 					Execute
 				</button>
 				<button
-					onClick={() => taskScheduler.getAllTasks()}
+					onClick={() => taskScheduler.autoComplete()}
 					className={`${st.submitBtn} ${st.txt}`}
 				>
 					Auto start

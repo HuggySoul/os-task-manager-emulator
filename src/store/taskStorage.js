@@ -1,30 +1,14 @@
 import { makeAutoObservable } from "mobx";
 
 class TaskStorage {
-	tasksToDo = [];
+	tasksToDo = []; // новые задачи, готовые к выполнению
 	MAX_QUEUE_QUANTITY = 1; //максимальное количество очередей для текущего набора задач и кванта
 	MAX_TIME = 1; //время максимального выполнения задачи в текущем списке
-	completedTasks = [
-		// { name: "Task1", time: 10 },
-		// { name: "Task2", time: 20 },
-		// { name: "Task3", time: 30 },
-		// { name: "Task4", time: 40 },
-		// { name: "Task5", time: 40 },
-		// { name: "Task5", time: 40 },
-		// { name: "Task5", time: 40 },
-		// { name: "Task5", time: 40 },
-		// { name: "Task5", time: 40 },
-		// { name: "Task5", time: 40 },
-		// { name: "Task5", time: 40 },
-		// { name: "Task5", time: 100 },
-	];
+	completedTasks = []; //завершённые задачи
+	tasksInProcess = []; //список очередей с выполняемыми задачами
 
-	//#todo: определять количество очередей на этапе добавления задач??
-
-	tasksInProcess = [];
-
-	quantum = 1;
-
+	quantum = 1; // квант
+	//флаг необходимый для корректного изменения состояния при изменениях в tasksInProcess
 	changeFlag = 0;
 
 	constructor() {
@@ -41,10 +25,6 @@ class TaskStorage {
 
 	addCompletedTask(task) {
 		this.tasksToDo.push(task);
-	}
-
-	addProcessingTask(task) {
-		this.tasksInProcess.push(task);
 	}
 
 	clearCompletedTaskList() {
