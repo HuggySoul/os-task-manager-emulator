@@ -1,6 +1,6 @@
 import st from "./taskInput.module.css";
 import inputIcon from "./assets/inputIcon.svg";
-import TasksStore from "../../store/toDo";
+import TasksStore from "../../store/taskStorage";
 import { useEffect, useState, useRef } from "react";
 
 export const TaskInput = () => {

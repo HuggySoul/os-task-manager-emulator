@@ -1,7 +1,7 @@
 import st from "./completedTasks.module.css";
 import { ClearBtn } from "../clearBtn/clearBtn";
 import { Task } from "../task/task";
-import TasksStore from "../../store/toDo";
+import TasksStore from "../../store/taskStorage";
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 

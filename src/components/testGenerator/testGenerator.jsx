@@ -1,5 +1,5 @@
 import st from "./testGenerator.module.css";
-import TasksStore from "../../store/toDo";
+import TasksStore from "../../store/taskStorage";
 import { useRef, useState, useEffect } from "react";
 
 export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {

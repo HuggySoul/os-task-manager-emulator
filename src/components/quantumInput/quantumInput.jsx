@@ -1,7 +1,7 @@
 import st from "./quantumInput.module.css";
 import inputIcon from "./assets/inputIcon.svg";
 import { useState, useEffect, useRef } from "react";
-import TasksStorage from "../../store/toDo";
+import TasksStorage from "../../store/taskStorage";
 import { observer } from "mobx-react-lite";
 
 export const QuantumInput = observer(() => {

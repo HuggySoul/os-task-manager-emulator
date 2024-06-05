@@ -2,7 +2,7 @@ import st from "./newTasks.module.css";
 import { Task } from "../task/task";
 import { ClearBtn } from "../clearBtn/clearBtn";
 import { TaskInput } from "../taskInput/taskInput";
-import TasksStore from "../../store/toDo";
+import TasksStore from "../../store/taskStorage";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
 

@@ -1,4 +1,4 @@
-import TaskStorage from "../store/toDo";
+import TaskStorage from "../store/taskStorage";
 
 class TaskScheduler {
 	QueueNum = 0;

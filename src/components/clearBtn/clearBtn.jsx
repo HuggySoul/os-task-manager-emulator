@@ -1,5 +1,5 @@
 import st from "./clearBtn.module.css";
-import TasksStore from "../../store/toDo";
+import TasksStore from "../../store/taskStorage";
 
 export const ClearBtn = ({ clearTaskList }) => {
 	return (

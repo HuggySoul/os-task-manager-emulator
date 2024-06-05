@@ -1,6 +1,6 @@
 import st from "./processList.module.css";
 import { ProgressBar } from "../progressBar/progressBar";
-import TasksStore from "../../store/toDo";
+import TasksStore from "../../store/taskStorage";
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 
