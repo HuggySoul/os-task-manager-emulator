@@ -6,6 +6,7 @@ import { CompletedTasks } from "./components/completedTasks/completedTasks";
 import taskScheduler from "./features/taskScheduler";
 import { TestGenerator } from "./components/testGenerator/testGenerator";
 import { useRef, useState } from "react";
+import { Footer } from "./components/footer/footer";
 
 function App() {
 	//флаг для открытия окна с генерацией тестов
@@ -46,6 +47,7 @@ function App() {
 					Auto test-gen
 				</button>
 			</div>
+			<Footer />
 		</div>
 	);
 }

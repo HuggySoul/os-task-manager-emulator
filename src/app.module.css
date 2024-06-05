@@ -3,6 +3,8 @@
 	justify-content: space-between;
 	flex-direction: column;
 	padding-top: 30px;
+	overflow-y: auto;
+	overflow-x: hidden;
 	height: 100vh;
 }
 
