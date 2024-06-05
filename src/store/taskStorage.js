@@ -58,7 +58,8 @@ class TaskStorage {
 
 	setMaxQueueQuantity() {
 		console.log("quantum:", this.quantum);
-		this.MAX_QUEUE_QUANTITY = Math.round(this.MAX_TIME / this.quantum);
+		console.log(this.MAX_TIME / this.quantum);
+		this.MAX_QUEUE_QUANTITY = Math.ceil(this.MAX_TIME / this.quantum);
 		console.log("MAX_QUEUE_QUANTITY", this.MAX_QUEUE_QUANTITY);
 	}
 

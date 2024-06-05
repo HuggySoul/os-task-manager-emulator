@@ -13,7 +13,6 @@ export const NewTasks = observer(() => {
 		if (TasksStore.tasksToDo.length) setIsListEmpty(false);
 		else setIsListEmpty(true);
 	};
-	console.log("Квант: ", TasksStore.quantum);
 
 	useEffect(() => {
 		checkEmpty();
