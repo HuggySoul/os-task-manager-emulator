@@ -10,6 +10,7 @@ export const QuantumInput = observer(() => {
 	const inputRef = useRef(null);
 
 	useEffect(() => {
+		setWarning(quantum);
 		//при нажатии enter сохраняем квант в хранилище
 		const listener = (event) => {
 			if (
@@ -18,7 +19,6 @@ export const QuantumInput = observer(() => {
 			) {
 				event.preventDefault();
 				setQuantumStorage();
-				setWarning(TasksStorage.quantum);
 			}
 		};
 		document.addEventListener("keydown", listener);
@@ -29,8 +29,10 @@ export const QuantumInput = observer(() => {
 
 	//устанавливаем значение кванта в хранилище
 	const setQuantumStorage = () => {
-		TasksStorage.quantum = quantum;
-		TasksStorage.setMaxQueueQuantity();
+		if (!attention) {
+			TasksStorage.quantum = quantum;
+			TasksStorage.setMaxQueueQuantity();
+		}
 	};
 
 	//устанавливаем состояние кванта в форме
@@ -39,7 +41,7 @@ export const QuantumInput = observer(() => {
 	};
 	//показываем предупреждение o кванте <= 0
 	const setWarning = (quantumValue) => {
-		if (Number(quantumValue) <= 0) setAttention(true);
+		if (quantumValue <= 0) setAttention(true);
 		else setAttention(false);
 	};
 
@@ -52,13 +54,12 @@ export const QuantumInput = observer(() => {
 					className={`${st.input} ${st.input_time}`}
 					placeholder="quantum"
 					onChange={(e) => {
-						SetQuantum(e.target.value);
+						SetQuantum(Number(e.target.value));
 					}}
 				/>
 				<button
 					onClick={() => {
 						setQuantumStorage();
-						setWarning(quantum);
 					}}
 					className={st.submitBtn}
 				>

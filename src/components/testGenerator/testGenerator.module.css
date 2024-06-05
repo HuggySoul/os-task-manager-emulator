@@ -33,6 +33,11 @@
 	font-size: 16px;
 }
 
+.txt_attention {
+	font-size: 11px;
+	color: red;
+}
+
 .btn_block {
 	display: flex;
 	justify-content: space-between;
@@ -70,7 +75,8 @@
 
 .input_block {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	gap: 5px;
 	flex-direction: row;
 	align-items: center;
 	height: 15%;

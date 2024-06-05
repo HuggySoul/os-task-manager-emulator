@@ -3,9 +3,11 @@ import TasksStore from "../../store/taskStorage";
 import { useRef, useState, useEffect } from "react";
 
 export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
-	const [taskQuantity, setTaskQuantity] = useState(0);
-	const [timeMin, setTimeMin] = useState(0);
-	const [timeMax, setTaskTimeMax] = useState(0);
+	const [taskQuantity, setTaskQuantity] = useState(1);
+	const [timeMin, setTimeMin] = useState(1);
+	const [timeMax, setTaskTimeMax] = useState(1);
+	const [taskAttention, setTaskAttention] = useState(false);
+	const [timeAttention, setTimeAttention] = useState(false);
 	const modalRef = useRef(null); //ссылка нужна для логики закрытия
 
 	useEffect(() => {
@@ -25,16 +27,38 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 		};
 	}, [setVisibleFlag]);
 
+	useEffect(() => {
+		setTaskWarning(taskQuantity);
+	}, [taskQuantity]);
+
+	useEffect(() => {
+		setTimeWarning(timeMin, timeMax);
+	}, [timeMin, timeMax]);
+
+	const setTaskWarning = (taskQuantity) => {
+		if (!taskQuantity || taskQuantity < 0 || taskQuantity > 50) setTaskAttention(true);
+		else setTaskAttention(false);
+	};
+
+	const setTimeWarning = (timeMin, timeMax) => {
+		if (!timeMin || !timeMax || timeMax < 0 || timeMin < 0 || timeMin > timeMax)
+			setTimeAttention(true);
+		else setTimeAttention(false);
+	};
+
 	const generateTimeInRange = () => {
-		console.log("timeMax/min: ", typeof timeMax, typeof timeMin);
 		const time = (Math.random() * (timeMax - timeMin) + timeMin).toFixed(3);
 		TasksStore.setMaxTime(time);
 		TasksStore.setMaxQueueQuantity();
 		return time;
 	};
 	const generateTasks = () => {
-		for (let i = 1; i <= taskQuantity; i++)
-			TasksStore.addNewTask({ name: `Task${i}`, time: generateTimeInRange() });
+		if (!taskAttention && !timeAttention) {
+			for (let i = 1; i <= taskQuantity; i++)
+				TasksStore.addNewTask({ name: `Task${i}`, time: generateTimeInRange() });
+
+			setVisibleFlag(false);
+		}
 	};
 
 	return (
@@ -52,7 +76,15 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 						setTaskQuantity(Number(e.target.value));
 					}}
 				/>
+				<p className={`${st.txt} ${st.txt_small}`}>(MAX: 50 tasks)</p>
 			</div>
+			{taskAttention ? (
+				<p className={`${st.txt} ${st.txt_small} ${st.txt_attention}`}>
+					*Enter correct task quantity
+				</p>
+			) : (
+				<></>
+			)}
 			<p className={`${st.txt} ${st.txt_small}`}>Enter the range to generate the time:</p>
 			<div className={st.time_range}>
 				<input
@@ -72,7 +104,13 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 					}}
 				/>
 			</div>
-
+			{timeAttention ? (
+				<p className={`${st.txt} ${st.txt_small} ${st.txt_attention}`}>
+					*Enter correct time range: min time {">"} max time
+				</p>
+			) : (
+				<></>
+			)}
 			<div className={st.btn_block}>
 				<button
 					onClick={() => {
@@ -82,13 +120,7 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 				>
 					Cancel
 				</button>
-				<button
-					onClick={() => {
-						generateTasks();
-						setVisibleFlag(false);
-					}}
-					className={`${st.btn} ${st.btn_gen}`}
-				>
+				<button onClick={generateTasks} className={`${st.btn} ${st.btn_gen}`}>
 					Generate
 				</button>
 			</div>
