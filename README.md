@@ -2,7 +2,7 @@
 
 This application is a simulator of the OS task manager. It is based on [multilevel feedback queue scheduling](https://en.wikipedia.org/wiki/Multilevel_feedback_queue).
 
-## Step-by-step instructions:
+## Step-by-step installation:
 
 1. Check for node.js on your PC by using `node -v` command. If you have't installed it before, then install it from the [official website](https://nodejs.org/en/download/package-manager).
 2. Run the `npm install` command in the cloned project folder to install node modules.
