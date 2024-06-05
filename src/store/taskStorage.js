@@ -37,21 +37,11 @@ class TaskStorage {
 	}
 
 	setMaxQueueQuantity() {
-		console.log("quantum:", this.quantum);
-		console.log(this.MAX_TIME / this.quantum);
 		this.MAX_QUEUE_QUANTITY = Math.ceil(this.MAX_TIME / this.quantum);
-		console.log("MAX_QUEUE_QUANTITY", this.MAX_QUEUE_QUANTITY);
 	}
 
 	setMaxTime(time) {
-		console.log("MAX_TIME:", this.MAX_TIME);
-		console.log(time);
-		if (Number(time) > this.MAX_TIME) {
-			console.log("Пришедшее время: ", time);
-			this.MAX_TIME = time;
-		} else {
-			console.log("нет");
-		}
+		if (Number(time) > this.MAX_TIME) this.MAX_TIME = time;
 	}
 }
 

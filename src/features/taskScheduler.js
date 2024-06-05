@@ -21,10 +21,6 @@ class TaskScheduler {
 			task.percentage = 0; // формируем свойство, показывающее степень выполненности процесса
 			TaskStorage.tasksInProcess[0].push(task); //помещаем в первую очередь
 		}
-		console.log(
-			"Задача на выполнение: ",
-			TaskStorage.tasksInProcess[0][TaskStorage.tasksInProcess[0].length - 1]
-		);
 	};
 
 	//понижает очередь задачи
@@ -34,17 +30,14 @@ class TaskScheduler {
 
 		if (!storage[nextQueue]) storage.push([]);
 
-		console.log("Понижаем задачу:", task);
 		storage[nextQueue].push(task);
 	};
 
 	//Задаём приоритетную очередь
 	setCurrentQueue(queueNum) {
-		console.log("Макс очередь:", TaskStorage.MAX_QUEUE_QUANTITY);
 		for (let queue = queueNum; queue < TaskStorage.MAX_QUEUE_QUANTITY; queue++) {
 			//обнуляем максимальное время, чтобы избежать ошибок при работе без перезагрузки web-страницы
 			if (queue === TaskStorage.MAX_QUEUE_QUANTITY - 2) {
-				console.log("Обнулило");
 				TaskStorage.MAX_TIME = 0;
 			}
 			//проверка на наличие очередей
@@ -67,18 +60,14 @@ class TaskScheduler {
 			queueNum = this.setCurrentQueue(queueNum);
 			//действия после прохождения всех очередей
 			if (!queueNum) {
-				console.log("Очереди закончились :(");
 				TaskStorage.tasksInProcess = [];
 				this.QueueNum = 0;
-				console.log("Обнулило");
 				TaskStorage.MAX_TIME = 0;
 				return;
 			}
 		}
 
 		let task = TaskStorage.tasksInProcess[queueNum].shift();
-		console.log("Номер очереди:", queueNum);
-		console.log("Задача обрабатываемая: ", task);
 		let oneTimeFraction = TaskStorage.quantum / task.time;
 		task.percentage = parseFloat((task.percentage + oneTimeFraction * 100).toFixed(3));
 		if (100 - task.percentage > 0.001) {
