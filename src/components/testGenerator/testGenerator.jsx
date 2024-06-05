@@ -26,7 +26,8 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 	}, [setVisibleFlag]);
 
 	const generateTimeInRange = () => {
-		const time = Number(Math.random() * (timeMax - timeMin) + timeMin).toFixed(3);
+		console.log("timeMax/min: ", typeof timeMax, typeof timeMin);
+		const time = (Math.random() * (timeMax - timeMin) + timeMin).toFixed(3);
 		TasksStore.setMaxTime(time);
 		TasksStore.setMaxQueueQuantity();
 		return time;
@@ -48,7 +49,7 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 					className={`${st.input} ${st.input_tasks}`}
 					placeholder="number of tasks"
 					onChange={(e) => {
-						setTaskQuantity(e.target.value);
+						setTaskQuantity(Number(e.target.value));
 					}}
 				/>
 			</div>
@@ -59,7 +60,7 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 					className={`${st.input} ${st.input_tasks}`}
 					placeholder="from"
 					onChange={(e) => {
-						setTimeMin(e.target.value);
+						setTimeMin(Number(e.target.value));
 					}}
 				/>
 				<input
@@ -67,7 +68,7 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 					className={`${st.input} ${st.input_tasks}`}
 					placeholder="to"
 					onChange={(e) => {
-						setTaskTimeMax(e.target.value);
+						setTaskTimeMax(Number(e.target.value));
 					}}
 				/>
 			</div>
