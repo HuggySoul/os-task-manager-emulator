@@ -37,7 +37,7 @@ export const TaskInput = () => {
 	};
 
 	const setWarning = (time, name) => {
-		if (!time || !name) setAttention(true);
+		if (!time || !name || time < 1) setAttention(true);
 		else setAttention(false);
 	};
 

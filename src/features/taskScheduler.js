@@ -27,7 +27,7 @@ class TaskScheduler {
 	downGradeTaskQueue = (task, queueNum) => {
 		let storage = TaskStorage.tasksInProcess;
 		let nextQueue = queueNum + 1;
-
+		//добавляет очередь, если закончились
 		if (!storage[nextQueue]) storage.push([]);
 
 		storage[nextQueue].push(task);
@@ -44,10 +44,8 @@ class TaskScheduler {
 			if (TaskStorage.tasksInProcess[queue]) {
 				//проверка на наличие элемента в очереди
 				if (TaskStorage.tasksInProcess[queue][0]) {
-					TaskStorage.setMaxTime(0);
-					queueNum = queue;
 					this.QueueNum = queue;
-					return queueNum;
+					return queue;
 				}
 			} else return 0;
 		}
@@ -66,11 +64,11 @@ class TaskScheduler {
 				return;
 			}
 		}
-
+		//берём первую из очереди задачу на обработку
 		let task = TaskStorage.tasksInProcess[queueNum].shift();
 		let oneTimeFraction = TaskStorage.quantum / task.time;
 		task.percentage = parseFloat((task.percentage + oneTimeFraction * 100).toFixed(3));
-		if (100 - task.percentage > 0.001) {
+		if (100 - task.percentage > 0.01) {
 			this.downGradeTaskQueue(task, queueNum);
 		} else {
 			task.percentage = 100;
@@ -85,6 +83,7 @@ class TaskScheduler {
 		TaskStorage.makeChange(); // необходимо для отслеживания изменений внутри очередей
 	};
 
+	//Выполнить все доступные задачи
 	autoComplete = () => {
 		let timerId = setInterval(() => {
 			this.execute();

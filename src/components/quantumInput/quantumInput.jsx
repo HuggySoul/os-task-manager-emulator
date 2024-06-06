@@ -31,6 +31,7 @@ export const QuantumInput = observer(() => {
 	const setQuantumStorage = () => {
 		if (!attention) {
 			TasksStorage.quantum = quantum;
+			//пересчитываем максимально возможное количество очередей
 			TasksStorage.setMaxQueueQuantity();
 		}
 	};

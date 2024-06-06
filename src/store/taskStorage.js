@@ -33,13 +33,15 @@ class TaskStorage {
 
 	clearTaskToDoList() {
 		this.tasksToDo = [];
-		this.MAX_TIME = 1;
+		this.MAX_TIME = 0;
 	}
 
+	//определяем максимальное количество очередей
+	//для текущего набора задач
 	setMaxQueueQuantity() {
 		this.MAX_QUEUE_QUANTITY = Math.ceil(this.MAX_TIME / this.quantum);
 	}
-
+	//задаём максимальное время текущего списка задач
 	setMaxTime(time) {
 		if (Number(time) > this.MAX_TIME) this.MAX_TIME = time;
 	}
