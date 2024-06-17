@@ -1,9 +1,9 @@
 import st from "./completedTasks.module.css";
-import { ClearBtn } from "../clearBtn/clearBtn";
 import { Task } from "../task/task";
 import TasksStore from "../../store/taskStorage";
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
+import { Btn } from "../../shared/UI";
 
 export const CompletedTasks = observer(() => {
 	const [isListEmpty, setIsListEmpty] = useState(true);
@@ -32,7 +32,11 @@ export const CompletedTasks = observer(() => {
 					))
 				)}
 			</div>
-			<ClearBtn clearTaskList={() => TasksStore.clearCompletedTaskList()} />
+			<Btn
+				title={"Clear list"}
+				color={"#233ea9"}
+				action={() => TasksStore.clearCompletedTaskList()}
+			/>
 		</div>
 	);
 });

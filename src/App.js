@@ -7,6 +7,7 @@ import taskScheduler from "./features/taskScheduler";
 import { TestGenerator } from "./components/testGenerator/testGenerator";
 import { useRef, useState } from "react";
 import { Footer } from "./components/footer/footer";
+import { Btn } from "./shared/UI";
 
 function App() {
 	//флаг для открытия окна с генерацией тестов
@@ -27,25 +28,14 @@ function App() {
 					<></>
 				)}
 				<QuantumInput />
-				<button
-					onClick={() => taskScheduler.execute()}
-					className={`${st.submitBtn} ${st.txt}`}
-				>
-					Execute
-				</button>
-				<button
-					onClick={() => taskScheduler.autoComplete()}
-					className={`${st.submitBtn} ${st.txt}`}
-				>
-					Auto start
-				</button>
-				<button
-					ref={testBtnRef}
-					onClick={() => setIsGenVisible(!isGenVisible)}
-					className={`${st.submitBtn} ${st.txt} ${st.testGenBtn}`}
-				>
-					Auto test-gen
-				</button>
+				<Btn title={"Execute"} action={taskScheduler.execute} color={"#233ea9"} />
+				<Btn title={"Auto start"} action={taskScheduler.autoComplete} color={"#233ea9"} />
+				<Btn
+					btnRef={testBtnRef}
+					title={"Auto test-gen"}
+					action={() => setIsGenVisible(!isGenVisible)}
+					color={"#ff6f61"}
+				/>
 			</div>
 			<Footer />
 		</div>

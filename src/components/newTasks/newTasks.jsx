@@ -1,10 +1,10 @@
 import st from "./newTasks.module.css";
 import { Task } from "../task/task";
-import { ClearBtn } from "../clearBtn/clearBtn";
 import { TaskInput } from "../taskInput/taskInput";
 import TasksStore from "../../store/taskStorage";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
+import { Btn } from "../../shared/UI";
 
 export const NewTasks = observer(() => {
 	const [isListEmpty, setIsListEmpty] = useState(true);
@@ -32,8 +32,12 @@ export const NewTasks = observer(() => {
 					))
 				)}
 			</div>
-			{/* Передаём так, чтобы не терять контекст вызова метода */}
-			<ClearBtn clearTaskList={() => TasksStore.clearTaskToDoList()} />
+			<Btn
+				title={"Clear list"}
+				color={"#233ea9"}
+				// Передаём так, чтобы не терять контекст вызова метода
+				action={() => TasksStore.clearTaskToDoList()}
+			/>
 		</div>
 	);
 });
