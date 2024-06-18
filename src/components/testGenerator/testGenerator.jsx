@@ -1,6 +1,7 @@
 import st from "./testGenerator.module.css";
 import TasksStore from "../../store/taskStorage";
 import { useRef, useState, useEffect } from "react";
+import { Btn } from "../../shared/UI";
 
 export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 	const [taskQuantity, setTaskQuantity] = useState(1);
@@ -112,17 +113,19 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 				<></>
 			)}
 			<div className={st.btn_block}>
-				<button
-					onClick={() => {
+				<Btn
+					title={"Cancel"}
+					action={() => {
 						setVisibleFlag(false);
 					}}
-					className={`${st.btn} ${st.btn_cancel}`}
-				>
-					Cancel
-				</button>
-				<button onClick={generateTasks} className={`${st.btn} ${st.btn_gen}`}>
-					Generate
-				</button>
+					color={"#ff6f61"}
+				/>
+				<Btn
+					title={"Generate"}
+					action={generateTasks}
+					color={"green"}
+					btnRef={openBtnRef}
+				/>
 			</div>
 		</div>
 	);

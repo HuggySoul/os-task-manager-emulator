@@ -22,30 +22,3 @@
 	gap: 10px;
 	padding-bottom: 30px;
 }
-
-.submitBtn {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: white;
-	background-color: #233ea9;
-	border-radius: 13px;
-	padding: 10px;
-}
-
-.testGenBtn {
-	background-color: #ff6f61;
-}
-
-.txt {
-	font-family: "Poppins";
-	font-weight: 600;
-	color: white;
-	font-size: 17px;
-}
-
-@media (max-height: 850px) {
-	.txt {
-		font-size: 15px;
-	}
-}

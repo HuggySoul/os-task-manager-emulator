@@ -13,7 +13,6 @@ function App() {
 	//флаг для открытия окна с генерацией тестов
 	const [isGenVisible, setIsGenVisible] = useState(false);
 	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
-
 	return (
 		<div className={st.main}>
 			<div className={st.tasks_menu}>

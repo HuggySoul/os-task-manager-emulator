@@ -46,27 +46,6 @@
 	padding: 0 2% 0 2%;
 }
 
-.btn {
-	display: flex;
-	padding: 5px;
-	justify-content: center;
-	align-items: center;
-	color: white;
-	border-radius: 10px;
-	font-family: "Poppins";
-	font-weight: 600;
-	color: white;
-	font-size: 16px;
-}
-
-.btn_gen {
-	background-color: green;
-}
-
-.btn_cancel {
-	background-color: #ff6f61;
-}
-
 .input {
 	border-radius: 10px;
 	padding: 5px;
