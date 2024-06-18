@@ -1,24 +1,33 @@
 import st from "./app.module.css";
 import { QuantumInput } from "./components/quantumInput/quantumInput";
-import { NewTasks } from "./components/newTasks/newTasks";
 import { ProcessList } from "./components/processList/processList";
-import { CompletedTasks } from "./components/completedTasks/completedTasks";
 import taskScheduler from "./features/taskScheduler";
 import { TestGenerator } from "./components/testGenerator/testGenerator";
 import { useRef, useState } from "react";
-import { Footer } from "./components/footer/footer";
 import { Btn } from "./shared/UI";
+import { TaskList } from "./components/taskList/taskList";
+import TasksStore from "./store/taskStorage";
+import { observer } from "mobx-react-lite";
 
-function App() {
+const App = observer(() => {
 	//флаг для открытия окна с генерацией тестов
 	const [isGenVisible, setIsGenVisible] = useState(false);
 	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
 	return (
 		<div className={st.main}>
 			<div className={st.tasks_menu}>
-				<NewTasks />
+				<TaskList
+					tasks={TasksStore.tasksToDo}
+					tasksType={"new"}
+					// Передаём так, чтобы не терять контекст вызова метода
+					clearList={() => TasksStore.clearTaskToDoList()}
+				/>
 				<ProcessList />
-				<CompletedTasks />
+				<TaskList
+					tasks={TasksStore.completedTasks}
+					tasksType={"completed"}
+					clearList={() => TasksStore.clearCompletedTaskList()}
+				/>
 			</div>
 			<div className={st.start_btns}>
 				{isGenVisible ? (
@@ -36,9 +45,8 @@ function App() {
 					color={"#ff6f61"}
 				/>
 			</div>
-			<Footer />
 		</div>
 	);
-}
+});
 
 export default App;
