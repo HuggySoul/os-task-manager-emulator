@@ -1,5 +1,5 @@
 .main {
-	background-color: #4a90e2;
+	background-color: var(--secondary-col);
 	width: 100%;
 	border-radius: 10px;
 	display: flex;
@@ -8,8 +8,8 @@
 	padding: 10px;
 }
 .txt {
-	font-family: "Poppins";
+	font-family: "comfortaa";
 	font-weight: 600;
-	color: white;
+	color: var(--text-col);
 	font-size: 16px;
 }

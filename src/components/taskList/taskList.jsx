@@ -37,7 +37,7 @@ export const TaskList = observer(({ tasks, tasksType, clearList }) => {
 					tasks.map((task, id) => <Task name={task.name} timeToDo={task.time} key={id} />)
 				)}
 			</div>
-			<Btn title={"Clear list"} color={"#233ea9"} action={clearList} />
+			<Btn title={"Clear list"} color={"var(--primary-col)"} action={clearList} />
 		</div>
 	);
 });

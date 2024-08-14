@@ -7,9 +7,9 @@
 }
 
 .txt {
-	font-family: "Poppins";
+	font-family: "Comfortaa";
 	font-weight: 600;
-	color: white;
+	color: var(--text-col);
 	font-size: 17px;
 }
 
@@ -22,6 +22,10 @@
 	border-radius: 20px;
 	padding: 10px;
 	font-size: 14px;
+	font-family: "comfortaa";
+	font-weight: 600;
+	color: var(--text-col);
+	box-shadow: 0 0 3px var(--secondary-col);
 }
 
 .input_time {
@@ -47,6 +51,6 @@
 
 .currentQuantum {
 	padding: 10px;
-	border: 1px solid white;
 	border-radius: 10px;
+	border: 1px solid var(--secondary-col);
 }

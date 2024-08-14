@@ -1,50 +1,173 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:700|Poppins:400");
-div {
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
-	box-sizing: border-box; /* Opera/IE 8+ */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+
+/* Основные цвета */
+:root {
+	--primary-col: rgba(178, 162, 112, 1);
+	--secondary-col: rgba(2, 0, 36, 0.3);
+	--text-col: black
+	--background-col: #ffff;
+	--modal-col: rgba(247, 247, 247, 1);
+}
+
+/* Reset and base styles  */
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Links */
+a,
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/* Common */
+aside,
+nav,
+footer,
+header,
+section,
+main {
+	display: block;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
 }
 
 h1 {
 	font-size: 21px;
-	font-family: "Poppins";
+	font-family: "Comfortaa";
 	font-weight: 600;
-	color: white;
+	color: var(--text-col);
 }
 
 p {
 	font-size: 18px;
-	font-family: "Poppins";
+	font-family: "Comfortaa";
 	font-weight: 600;
-	color: white;
+	color: var(--text-col);
 	margin: 0 !important;
 }
 
-button {
-	background: none;
-	border: none;
-	padding: 0;
+ul,
+ul li {
+	list-style: none;
 }
 
-button:hover {
+img {
+	vertical-align: top;
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+	font-style: normal;
+}
+
+/* Form */
+input,
+textarea,
+button,
+select {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button,
+input[type="submit"] {
+	display: inline-block;
+	box-shadow: none;
+	background-color: transparent;
+	background: none;
+	cursor: pointer;
+}
+input[type="text"],
+input[type="password"] {
+	cursor: pointer;
+	font-family: "Comfortaa";
+	font-weight: 600;
+	text-indent: 12px;
+	cursor: text;
+}
+
+input[placeholder] {
+	font-family: "Comfortaa";
+	font-size: 14px;
+	font-weight: 600;
+	text-indent: 12px;
+}
+input::-moz-placeholder {
+	font-family: "Comfortaa";
+	font-size: 14px;
+	font-weight: 600;
+}
+input:-moz-placeholder {
+	font-family: "Comfortaa";
+	font-size: 14px;
+	font-weight: 600;
+}
+input:-ms-input-placeholder {
+	font-family: "Comfortaa";
+	font-size: 14px;
+	font-weight: 600;
+}
+input:focus,
+input:active,
+button:focus,
+button:active {
+	outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
 	cursor: pointer;
 }
 
-body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
-	box-sizing: border-box; /* Opera/IE 8+ */
+legend {
+	display: block;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-html {
-	scrollbar-color: #e0e0e0 #3b3b3b;
 }

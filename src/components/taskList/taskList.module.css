@@ -13,6 +13,9 @@
 	gap: 10px;
 	overflow-y: auto;
 	overflow-y: hidden;
+	box-shadow: 0 0 3px var(--secondary-col);
+	border-radius: 25px;
+	background-color: var(--modal-col);
 }
 
 .empty_list {
@@ -23,16 +26,18 @@
 	height: 75vh;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid white;
-	border-radius: 30px;
+	border: 1px solid var(--text-col);
+	border-radius: 25px;
+	box-shadow: 0 0 3px var(--secondary-col);
+	background-color: var(--modal-col);
 }
 
 .empty_txt {
-	font-family: "Poppins";
+	font-family: "Comfortaa";
 	font-weight: 600;
-	color: white;
+	color: var(--text-col);
 	font-size: 20px;
-	opacity: 50%;
+	/* opacity: 50%; */
 }
 
 @media (max-width: 1330px) {

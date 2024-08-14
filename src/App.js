@@ -14,7 +14,7 @@ const App = observer(() => {
 	const [isGenVisible, setIsGenVisible] = useState(false);
 	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
 	return (
-		<div className={st.main}>
+		<main className={st.main}>
 			<div className={st.tasks_menu}>
 				<TaskList
 					tasks={TasksStore.tasksToDo}
@@ -36,8 +36,16 @@ const App = observer(() => {
 					<></>
 				)}
 				<QuantumInput />
-				<Btn title={"Execute"} action={taskScheduler.execute} color={"#233ea9"} />
-				<Btn title={"Auto start"} action={taskScheduler.autoComplete} color={"#233ea9"} />
+				<Btn
+					title={"Execute"}
+					action={taskScheduler.execute}
+					color={"var(--primary-col)"}
+				/>
+				<Btn
+					title={"Auto start"}
+					action={taskScheduler.autoComplete}
+					color={"var(--primary-col)"}
+				/>
 				<Btn
 					btnRef={testBtnRef}
 					title={"Auto test-gen"}
@@ -45,7 +53,7 @@ const App = observer(() => {
 					color={"#ff6f61"}
 				/>
 			</div>
-		</div>
+		</main>
 	);
 });
 

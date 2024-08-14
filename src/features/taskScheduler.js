@@ -1,26 +1,17 @@
 import TaskStorage from "../store/taskStorage";
 
 class TaskScheduler {
-	QueueNum = 0; // номер приоритетно очереди(та, задачи из которой выполняем)
-
-	getAllTasks = () => {
-		TaskStorage.tasksToDo.forEach((task) => {
-			if (!TaskStorage.tasksInProcess[0]) TaskStorage.tasksInProcess.push([]);
-
-			TaskStorage.tasksInProcess[0].push(task);
-		});
-	};
+	QueueNum = 0; // номер приоритетной очереди(та, задачи из которой выполняем)
 
 	//берём задачи из списка для выполнения и помещаем в первую очередь
 	getOneNewTask = () => {
-		if (!TaskStorage.tasksInProcess[0]) TaskStorage.tasksInProcess.push([]);
+		if (!TaskStorage.tasksToDo[0]) return;
 
-		if (TaskStorage.tasksToDo[0]) {
-			this.QueueNum = 0; //первая очередь становится приоритетной
-			let task = TaskStorage.tasksToDo.shift();
-			task.percentage = 0; // формируем свойство, показывающее степень выполненности процесса
-			TaskStorage.tasksInProcess[0].push(task); //помещаем в первую очередь
-		}
+		if (!TaskStorage.tasksInProcess[0]) TaskStorage.tasksInProcess.push([]);
+		this.QueueNum = 0; //первая очередь становится приоритетной
+		let task = TaskStorage.tasksToDo.shift();
+		task.percentage = 0; // формируем свойство, показывающее степень выполненности процесса
+		TaskStorage.tasksInProcess[0].push(task); //помещаем в первую очередь
 	};
 
 	//понижает очередь задачи

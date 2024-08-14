@@ -123,7 +123,7 @@ export const TestGenerator = ({ setVisibleFlag, openBtnRef }) => {
 				<Btn
 					title={"Generate"}
 					action={generateTasks}
-					color={"green"}
+					color={"var(--primary-col)"}
 					btnRef={openBtnRef}
 				/>
 			</div>

@@ -13,7 +13,7 @@
 }
 
 .attention_txt {
-	font-family: "Poppins";
+	font-family: "comfortaa";
 	font-weight: 600;
 	font-size: 15px;
 	color: red;
@@ -25,6 +25,10 @@
 	border-radius: 20px;
 	padding: 10px;
 	font-size: 14px;
+	font-family: "comfortaa";
+	font-weight: 600;
+	color: var(--text-col);
+	box-shadow: 0 0 3px var(--secondary-col);
 }
 
 .input_name {
