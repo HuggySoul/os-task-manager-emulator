@@ -23,18 +23,22 @@ export const TaskList = observer(({ tasks, tasksType, clearList }) => {
 
 	return (
 		<div className={st.taskList}>
-			{isNewTaskList() ? <TaskInput /> : <></>}
 			<div
-				style={isNewTaskList() ? {} : { marginTop: "44px" }}
+				style={{ marginTop: "44px" }}
 				className={isListEmpty ? st.empty_list : st.list}
 			>
+				{isNewTaskList() ? <TaskInput /> : <></>}
 				{isListEmpty ? (
-					<>
+					<div className={st.txt}>
 						<p className={st.empty_txt}>The {tasksType} tasks </p>
 						<p className={st.empty_txt}>will be located here</p>
-					</>
+					</div>
 				) : (
-					tasks.map((task, id) => <Task name={task.name} timeToDo={task.time} key={id} />)
+					<div style={isNewTaskList() ? { marginTop: "40px" } : {}} className={st.tasks}>
+						{tasks.map((task, id) => (
+							<Task name={task.name} timeToDo={task.time} key={id} />
+						))}
+					</div>
 				)}
 			</div>
 			<Btn title={"Clear list"} color={"var(--primary-col)"} action={clearList} />

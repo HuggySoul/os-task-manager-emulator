@@ -70,11 +70,7 @@ export const TaskInput = () => {
 					<img className={st.submitImg} src={inputIcon} alt="Добавить задачу" />
 				</button>
 			</div>
-			{attention ? (
-				<p className={st.attention_txt}>*Fill in the fields correctly</p>
-			) : (
-				<></>
-			)}
+			{attention && <p className={st.attention_txt}>*Fill in the fields correctly</p>}
 		</div>
 	);
 };

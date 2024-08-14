@@ -1,7 +1,15 @@
 .input_Block {
 	display: flex;
-	width: 25vw;
+	width: 100%;
 	justify-content: space-between;
+	gap: 15px;
+	padding: 10px;
+	position: absolute;
+	top: 44px;
+	left: 0;
+	z-index: 1;
+	border-radius: 25px 25px 0 0;
+	/* border-bottom: 1px solid var(--secondary-col); */
 }
 
 .attention {
@@ -19,6 +27,9 @@
 	color: red;
 	font-size: 10px;
 	padding-left: 5%;
+	position: absolute;
+	left: 0;
+	top: 91px;
 }
 
 .input {
@@ -32,10 +43,10 @@
 }
 
 .input_name {
-	width: 50%;
+	width: 100%;
 }
 .input_time {
-	width: 15%;
+	width: 80%;
 }
 
 .styled_input::placeholder {
@@ -46,6 +57,7 @@
 	justify-content: center;
 	align-items: flex-end;
 	border-radius: 10px;
+	width: 20px;
 }
 
 .submitImg {
