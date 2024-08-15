@@ -66,7 +66,7 @@ export const TaskInput = () => {
 						setTask(newTask);
 					}}
 				/>
-				<button onClick={addTask} className={st.submitBtn}>
+				<button title="Add task" onClick={addTask} className={st.submitBtn}>
 					<img className={st.submitImg} src={inputIcon} alt="Добавить задачу" />
 				</button>
 			</div>

@@ -33,10 +33,10 @@
 
 .txt {
 	padding-left: 20px;
-	font-family: "Poppins";
+	font-family: "Comfortaa";
 	font-weight: 600;
-	color: white;
-	font-size: 15px;
+	color: var(--text-col);
+	font-size: 16px;
 }
 
 .progress_text {
@@ -47,6 +47,8 @@
 	font-size: 21px;
 	font-weight: bold;
 	color: #555;
+	font-family: "Comfortaa";
+	font-weight: 600;
 }
 
 @media (max-width: 1400px) {
