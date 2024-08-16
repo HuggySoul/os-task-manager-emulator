@@ -18,7 +18,6 @@ export const ProcessList = observer(() => {
 
 	return (
 		<div className={st.processor}>
-			{/* <p className={st.txt}>Processor</p> */}
 			<div className={isListEmpty ? st.empty_List : st.list}>
 				{isListEmpty ? (
 					<>

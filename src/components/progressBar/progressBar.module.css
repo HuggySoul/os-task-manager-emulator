@@ -1,7 +1,13 @@
 .task {
 	display: flex;
-	flex-direction: column;
 	gap: 5px;
+}
+
+.bar {
+	display: flex;
+	gap: 5px;
+	width: 100%;
+	flex-direction: column;
 }
 
 .progress_bar {
@@ -40,15 +46,15 @@
 }
 
 .progress_text {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	font-size: 21px;
+	display: flex;
+	align-items: center;
+	font-size: 18px;
 	font-weight: bold;
 	color: #555;
 	font-family: "Comfortaa";
 	font-weight: 600;
+	margin-top: 20px;
+	min-width: 59px;
 }
 
 @media (max-width: 1400px) {

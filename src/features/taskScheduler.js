@@ -58,7 +58,7 @@ class TaskScheduler {
 		//берём первую из очереди задачу на обработку
 		let task = TaskStorage.tasksInProcess[queueNum].shift();
 		let oneTimeFraction = TaskStorage.quantum / task.time;
-		task.percentage = parseFloat((task.percentage + oneTimeFraction * 100).toFixed(3));
+		task.percentage = parseFloat((task.percentage + oneTimeFraction * 100).toFixed(2));
 		if (100 - task.percentage > 0.01) {
 			this.downGradeTaskQueue(task, queueNum);
 		} else {
