@@ -27,7 +27,6 @@
 	height: 75vh;
 	align-items: center;
 	justify-content: flex-start;
-	border: 1px solid var(--text-col);
 	border-radius: 25px;
 	box-shadow: 0 0 3px var(--secondary-col);
 	background-color: var(--modal-col);
@@ -59,7 +58,7 @@
 	height: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding: 0 5px;
+	padding: 35px 5px;
 }
 
 @media (max-width: 1330px) {

@@ -1,76 +1,72 @@
 import st from "./taskInput.module.css";
-import inputIcon from "./assets/inputIcon.svg";
+import addTaskIcon from "./assets/addTaskIcon.svg";
 import TasksStore from "../../store/taskStorage";
 import { useEffect, useState, useRef } from "react";
 
 export const TaskInput = () => {
-	const [task, setTask] = useState({ name: "Task1", time: 1 });
-	const [attention, setAttention] = useState(false);
-	const inputRef1 = useRef(null);
-	const inputRef2 = useRef(null);
+	const [isAddingTask, setIsAddingTask] = useState(false);
+	const nameInput = useRef(null);
+	const timeInput = useRef(null);
 
 	useEffect(() => {
-		setWarning(task.time, task.name);
-		//при нажатии enter сохраняем квант в хранилище
+		const setInputActive = () => {
+			if (isAddingTask) nameInput.current.focus();
+		};
+		setInputActive();
+
 		const listener = (event) => {
-			if (
-				(document.activeElement === inputRef1.current ||
-					document.activeElement === inputRef2.current) &&
-				(event.code === "Enter" || event.code === "NumpadEnter")
-			) {
-				event.preventDefault();
+			if (event.key === "Escape") setIsAddingTask(false);
+			if (event.key === "Enter" && !timeInput.current.value) timeInput.current.focus();
+			if (event.key === "Enter" && nameInput.current.value && timeInput.current.value)
 				addTask();
-			}
 		};
-		document.addEventListener("keydown", listener);
-		return () => {
-			document.removeEventListener("keydown", listener);
-		};
-	}, [task.time, task.name]);
+
+		if (isAddingTask) {
+			document.addEventListener("keydown", listener);
+			return () => {
+				document.removeEventListener("keydown", listener);
+			};
+		}
+	}, [isAddingTask]);
 
 	const addTask = () => {
-		if (task.time && task.name) {
-			TasksStore.setMaxTime(task.time);
+		const name = nameInput.current.value;
+		const time = timeInput.current.value;
+		if (time && name) {
+			setIsAddingTask(false);
+			TasksStore.setMaxTime(time);
 			TasksStore.setMaxQueueQuantity();
-			TasksStore.addNewTask(task);
+			TasksStore.addNewTask({
+				name: name,
+				time: time,
+			});
 		}
 	};
 
-	const setWarning = (time, name) => {
-		if (!time || !name || time < 1) setAttention(true);
-		else setAttention(false);
-	};
-
 	return (
-		<div className={st.attention}>
-			<div className={st.input_Block}>
-				<input
-					ref={inputRef1}
-					type="text"
-					className={`${st.input} ${st.input_name}`}
-					placeholder="Task name"
-					onChange={(e) => {
-						const time = task?.time;
-						const newTask = { name: e.target.value, time: time };
-						setTask(newTask);
-					}}
-				/>
-				<input
-					ref={inputRef2}
-					type="number"
-					className={`${st.input} ${st.input_time}`}
-					placeholder="Time"
-					onChange={(e) => {
-						const name = task?.name;
-						const newTask = { name: name, time: e.target.value };
-						setTask(newTask);
-					}}
-				/>
-				<button title="Add task" onClick={addTask} className={st.submitBtn}>
-					<img className={st.submitImg} src={inputIcon} alt="Добавить задачу" />
+		<div className={st.input_Block}>
+			{!isAddingTask && (
+				<button onClick={() => setIsAddingTask(!isAddingTask)} className={st.addTask}>
+					<img className={st.addTaskIcon} src={addTaskIcon} alt="Add task Icon" />
+					<p>Add new task</p>
 				</button>
-			</div>
-			{attention && <p className={st.attention_txt}>*Fill in the fields correctly</p>}
+			)}
+			{isAddingTask && (
+				<div className={st.newTask}>
+					<input
+						ref={nameInput}
+						type="text"
+						className={`${st.input} ${st.input_name}`}
+						placeholder="Enter the task name"
+					/>
+					<input
+						ref={timeInput}
+						type="number"
+						className={`${st.input} ${st.input_time}`}
+						placeholder="Enter the execution time"
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

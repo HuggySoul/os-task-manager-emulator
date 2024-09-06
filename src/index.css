@@ -4,9 +4,10 @@
 :root {
 	--primary-col: rgba(178, 162, 112, 1);
 	--secondary-col: rgba(2, 0, 36, 0.3);
-	--text-col: black
+	--text-col: black;
 	--background-col: #ffff;
 	--modal-col: rgba(247, 247, 247, 1);
+	--primary-blue-col: rgba(0, 153, 255, 1);
 }
 
 /* Reset and base styles  */

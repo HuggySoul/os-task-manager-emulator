@@ -1,11 +1,12 @@
 .main {
-	background-color: var(--secondary-col);
+	background-color: var(--background-col);
 	width: 100%;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 10px;
+	box-shadow: 0 0 2px var(--secondary-col);
 }
 .txt {
 	font-family: "comfortaa";
