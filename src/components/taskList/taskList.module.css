@@ -19,6 +19,25 @@
 	background-color: var(--modal-col);
 }
 
+.clearQueueBtn {
+	position: absolute;
+	top: 60px;
+	right: 15px;
+	border-radius: 10px;
+	background-color: var(--background-col);
+	box-shadow: 0 0 2px var(--secondary-col);
+	padding: 5px;
+	z-index: 2;
+}
+
+.clearQueueBtn:hover {
+	scale: 1.03;
+}
+
+.clearQueueIcon{
+	width: 25px;
+}
+
 .empty_list {
 	display: flex;
 	flex-direction: column;

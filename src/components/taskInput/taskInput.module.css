@@ -27,15 +27,41 @@
 	width: 100%;
 }
 
-.styled_input::placeholder {
-}
-
-.addTask {
+.addTaskBtn {
 	display: flex;
 	gap: 3px;
 	color: var(--text-col);
 	align-items: center;
+	transition: scale 0.05s;
+	border-radius: 12px;
+	background-color: var(--background-col);
+	padding: 5px 10px;
+	box-shadow: 0 0 2px var(--secondary-col);
 }
+.addTaskBtn:hover {
+	scale: 1.03;
+}
+.internalAddTaskBtn{
+	padding: 0;
+	background-color: none;
+	box-shadow: none;
+}
+
+.clearQueueBtn{
+	border-radius: 10px;
+	background-color: var(--background-col);
+	box-shadow: 0 0 2px var(--secondary-col);
+	padding: 5px;
+}
+.clearQueueBtn:hover {
+	scale: 1.03;
+}
+
+.clearQueueIcon{
+	width: 25px;
+}
+
+
 .newTask {
 	background-color: var(--background-col);
 	width: 100%;
@@ -45,22 +71,32 @@
 	align-items: flex-start;
 	padding: 5px;
 	box-shadow: 0 0 2px var(--secondary-col);
+	animation: mountNewTask 0.2s ease-in-out;
+}
+
+.topBtns{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@keyframes mountNewTask {
+	0% {
+		scale: 0.85;
+	}
+
+	100% {
+		scale: 1;
+	}
+}
+
+.lowerBlock {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 .addTaskIcon {
-	width: 30px;
+	width: 25px;
 }
 
-.submitBtn {
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	border-radius: 10px;
-	width: 20px;
-}
-
-.submitImg {
-	border-radius: 20px;
-}
-.submitBtn:hover {
-	scale: 1.1;
-}

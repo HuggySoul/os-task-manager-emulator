@@ -1,10 +1,10 @@
 import st from "./taskInput.module.css";
 import addTaskIcon from "./assets/addTaskIcon.svg";
+// import clearQueueIcon from "./assets/clearQueueIcon.svg";
 import TasksStore from "../../store/taskStorage";
 import { useEffect, useState, useRef } from "react";
 
-export const TaskInput = () => {
-	const [isAddingTask, setIsAddingTask] = useState(false);
+export const TaskInput = ({ isAddingTask, setIsAddingTask }) => {
 	const nameInput = useRef(null);
 	const timeInput = useRef(null);
 
@@ -46,10 +46,22 @@ export const TaskInput = () => {
 	return (
 		<div className={st.input_Block}>
 			{!isAddingTask && (
-				<button onClick={() => setIsAddingTask(!isAddingTask)} className={st.addTask}>
-					<img className={st.addTaskIcon} src={addTaskIcon} alt="Add task Icon" />
-					<p>Add new task</p>
-				</button>
+				<div className={st.topBtns}>
+					<button
+						onClick={() => setIsAddingTask(!isAddingTask)}
+						className={st.addTaskBtn}
+					>
+						<img className={st.addTaskIcon} src={addTaskIcon} alt="Add task Icon" />
+						<p>Add new task</p>
+					</button>
+					{/* <button
+						onClick={() => TasksStore.clearTaskToDoList()}
+						title="Clear queue"
+						className={st.clearQueueBtn}
+					>
+						<img className={st.clearQueueIcon} src={clearQueueIcon} alt="Clear queue" />
+					</button> */}
+				</div>
 			)}
 			{isAddingTask && (
 				<div className={st.newTask}>
@@ -59,12 +71,20 @@ export const TaskInput = () => {
 						className={`${st.input} ${st.input_name}`}
 						placeholder="Enter the task name"
 					/>
-					<input
-						ref={timeInput}
-						type="number"
-						className={`${st.input} ${st.input_time}`}
-						placeholder="Enter the execution time"
-					/>
+					<div className={st.lowerBlock}>
+						<input
+							ref={timeInput}
+							type="number"
+							className={`${st.input} ${st.input_time}`}
+							placeholder="Enter the execution time"
+						/>
+						<button
+							onClick={addTask}
+							className={`${st.addTaskBtn} ${st.internalAddTaskBtn}`}
+						>
+							<img className={st.addTaskIcon} src={addTaskIcon} alt="Add task Icon" />
+						</button>
+					</div>
 				</div>
 			)}
 		</div>
