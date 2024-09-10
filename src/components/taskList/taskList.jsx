@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { TaskInput } from "../taskInput/taskInput";
 import clearQueueIcon from "./assets/clearQueueIcon.svg";
+import generateTasksIcon from "./assets/generateIcon.svg";
 
 export const TaskList = observer(({ tasks, tasksType, clearList }) => {
 	const [isListEmpty, setIsListEmpty] = useState(true);
@@ -29,6 +30,18 @@ export const TaskList = observer(({ tasks, tasksType, clearList }) => {
 					<img className={st.clearQueueIcon} src={clearQueueIcon} alt="Clear queue" />
 				</button>
 			)}
+			{/* {!isAddingTask && isNewTaskList() && (
+				<button
+					title="Generate tasks"
+					className={`${st.clearQueueBtn} ${st.generateTasksBtn}`}
+				>
+					<img
+						className={st.clearQueueIcon}
+						src={generateTasksIcon}
+						alt="Generate tasks"
+					/>
+				</button>
+			)} */}
 			<div
 				style={{ marginTop: "44px" }}
 				className={isListEmpty ? st.empty_list : st.list}
@@ -44,7 +57,7 @@ export const TaskList = observer(({ tasks, tasksType, clearList }) => {
 						<p className={st.empty_txt}>will be located here</p>
 					</div>
 				) : (
-					<div style={isNewTaskList() ? { marginTop: "40px" } : {}} className={st.tasks}>
+					<div style={{ marginTop: "40px" }} className={st.tasks}>
 						{tasks.map((task, id) => (
 							<Task name={task.name} timeToDo={task.time} key={id} />
 						))}

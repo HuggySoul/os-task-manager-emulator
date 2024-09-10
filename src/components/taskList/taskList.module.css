@@ -22,12 +22,16 @@
 .clearQueueBtn {
 	position: absolute;
 	top: 60px;
-	right: 15px;
+	right: 20px;
 	border-radius: 10px;
 	background-color: var(--background-col);
 	box-shadow: 0 0 2px var(--secondary-col);
 	padding: 5px;
 	z-index: 2;
+}
+
+.generateTasksBtn {
+	right: 60px;
 }
 
 .clearQueueBtn:hover {

@@ -8,12 +8,21 @@ import { Btn } from "./shared/UI";
 import { TaskList } from "./components/taskList/taskList";
 import TasksStore from "./store/taskStorage";
 import { observer } from "mobx-react-lite";
+import {Modal} from "./shared/UI";
+import { createPortal } from "react-dom";
 
 const App = observer(() => {
 	//флаг для открытия окна с генерацией тестов
 	const [isGenVisible, setIsGenVisible] = useState(false);
 	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
 	return (
+		<>
+		{/* <Modal>
+				<div style={{width: "50%", height:"50%", background:"white"}}>
+
+				</div>
+		</Modal> */}
+		
 		<main className={st.main}>
 			<div className={st.tasks_menu}>
 				<TaskList
@@ -54,6 +63,8 @@ const App = observer(() => {
 				/>
 			</div>
 		</main>
+		</>
+		
 	);
 });
 
