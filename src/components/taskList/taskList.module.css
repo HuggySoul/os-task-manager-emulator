@@ -34,11 +34,15 @@
 	right: 60px;
 }
 
+.clearQueueBtn:active {
+	scale: 0.98;
+}
+
 .clearQueueBtn:hover {
 	scale: 1.03;
 }
 
-.clearQueueIcon{
+.clearQueueIcon {
 	width: 25px;
 }
 

@@ -6,7 +6,7 @@ import { TaskInput } from "../taskInput/taskInput";
 import clearQueueIcon from "./assets/clearQueueIcon.svg";
 import generateTasksIcon from "./assets/generateIcon.svg";
 
-export const TaskList = observer(({ tasks, tasksType, clearList }) => {
+export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen }) => {
 	const [isListEmpty, setIsListEmpty] = useState(true);
 	const [isAddingTask, setIsAddingTask] = useState(false);
 
@@ -30,8 +30,11 @@ export const TaskList = observer(({ tasks, tasksType, clearList }) => {
 					<img className={st.clearQueueIcon} src={clearQueueIcon} alt="Clear queue" />
 				</button>
 			)}
-			{/* {!isAddingTask && isNewTaskList() && (
+			{!isAddingTask && isNewTaskList() && (
 				<button
+					onClick={() => {
+						setIsModalOpen(true);
+					}}
 					title="Generate tasks"
 					className={`${st.clearQueueBtn} ${st.generateTasksBtn}`}
 				>
@@ -41,7 +44,7 @@ export const TaskList = observer(({ tasks, tasksType, clearList }) => {
 						alt="Generate tasks"
 					/>
 				</button>
-			)} */}
+			)}
 			<div
 				style={{ marginTop: "44px" }}
 				className={isListEmpty ? st.empty_list : st.list}
