@@ -1,3 +1,8 @@
+.processor {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
 .list {
 	display: flex;
 	flex-direction: column;
@@ -40,13 +45,7 @@
 	font-size: 20px;
 }
 
-.processor {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-}
 .topBtns {
-	position: absolute;
 	display: flex;
 	width: 95%;
 	justify-content: flex-start;
@@ -55,7 +54,7 @@
 	left: 15px;
 }
 
-.addQuantumBtn {
+/* .addQuantumBtn {
 	display: flex;
 	gap: 3px;
 	color: var(--text-col);
@@ -68,11 +67,11 @@
 }
 .addQuantumBtn:hover {
 	scale: 1.03;
-}
+} */
 
-.addIcon {
+/* .addIcon {
 	width: 25px;
-}
+} */
 
 @media (max-width: 1330px) {
 	.empty_txt {

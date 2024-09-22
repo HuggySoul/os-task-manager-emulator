@@ -1,12 +1,15 @@
 import st from "./quantumInput.module.css";
 import inputIcon from "./assets/inputIcon.svg";
+import addIcon from "./assets/addIcon.svg";
 import { useState, useEffect, useRef } from "react";
 import TasksStorage from "../../store/taskStorage";
 import { observer } from "mobx-react-lite";
 
-export const QuantumInput = observer(({ setIsAddingQuantum }) => {
+export const QuantumInput = observer(() => {
 	const [quantum, setQuantum] = useState(1);
 	const [attention, setAttention] = useState(false);
+	const [isAddingQuantum, setIsAddingQuantum] = useState(false);
+
 	const inputRef = useRef(null);
 
 	useEffect(() => {
@@ -49,15 +52,25 @@ export const QuantumInput = observer(({ setIsAddingQuantum }) => {
 
 	return (
 		<div className={st.quantum_block}>
-			<input
-				ref={inputRef}
-				type="number"
-				className={st.quantum_input}
-				placeholder="quantum"
-				onChange={(e) => {
-					SetQuantum(Number(e.target.value));
-				}}
-			/>
+			<button
+				onClick={() => setIsAddingQuantum(true)}
+				className={isAddingQuantum ? st.editingBtnMode : st.addQuantumBtn}
+			>
+				{!isAddingQuantum && <p>Set quantum</p>}
+				{isAddingQuantum && (
+					<input
+						ref={inputRef}
+						type="number"
+						className={st.quantum_input}
+						placeholder="Enter quantum"
+						onChange={(e) => {
+							SetQuantum(Number(e.target.value));
+						}}
+					/>
+				)}
+				<img className={st.addIcon} src={addIcon} alt="Add quantum" />
+			</button>
+
 			{/* <button
 					onClick={() => {
 						setQuantumStorage();

@@ -1,15 +1,14 @@
 .quantum_block {
 	display: flex;
 	gap: 5px;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
-	position: relative;
+	position: absolute;
 	width: 100%;
-	background-color: var(--background-col);
-	box-shadow: 0 0 2px var(--secondary-col);
 	padding: 5px 10px;
 	border-radius: 12px;
 	z-index: 1;
+	top: 55px;
 }
 
 .quantum {
@@ -19,7 +18,7 @@
 }
 
 .quantum_input {
-	width: 40%;
+	width: 300px;
 	border-radius: 10px;
 	padding: 7px;
 	font-size: 14px;
@@ -29,6 +28,36 @@
 	box-shadow: 0 0 1px var(--secondary-col);
 }
 
+.addQuantumBtn {
+	display: flex;
+	gap: 3px;
+	color: var(--text-col);
+	align-items: center;
+	transition: scale 0.05s;
+	border-radius: 12px;
+	background-color: var(--background-col);
+	padding: 5px 10px;
+	box-shadow: 0 0 2px var(--secondary-col);
+}
+.editingBtnMode {
+	display: flex;
+	gap: 5px;
+	color: var(--text-col);
+	align-items: center;
+	transition: scale 0.05s;
+	border-radius: 12px;
+	background-color: var(--background-col);
+	padding: 10px 10px;
+	box-shadow: 0 0 2px var(--secondary-col);
+}
+
+.addQuantumBtn:hover {
+	scale: 1.03;
+}
+
+.addIcon {
+	width: 25px;
+}
 .txt {
 	font-family: "Comfortaa";
 	font-weight: 600;
