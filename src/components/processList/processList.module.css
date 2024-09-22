@@ -31,7 +31,6 @@
 	font-weight: 600;
 	color: var(--text-col);
 	font-size: 20px;
-	/* opacity: 50%; */
 }
 
 .txt {
@@ -39,12 +38,40 @@
 	font-weight: 600;
 	color: var(--text-col);
 	font-size: 20px;
-	/* height: 38px; */
 }
 
 .processor {
+	position: relative;
 	display: flex;
 	flex-direction: column;
+}
+.topBtns {
+	position: absolute;
+	display: flex;
+	width: 95%;
+	justify-content: flex-start;
+	align-items: center;
+	top: 60px;
+	left: 15px;
+}
+
+.addQuantumBtn {
+	display: flex;
+	gap: 3px;
+	color: var(--text-col);
+	align-items: center;
+	transition: scale 0.05s;
+	border-radius: 12px;
+	background-color: var(--background-col);
+	padding: 5px 10px;
+	box-shadow: 0 0 2px var(--secondary-col);
+}
+.addQuantumBtn:hover {
+	scale: 1.03;
+}
+
+.addIcon {
+	width: 25px;
 }
 
 @media (max-width: 1330px) {

@@ -54,13 +54,6 @@ export const TaskInput = ({ isAddingTask, setIsAddingTask }) => {
 						<img className={st.addTaskIcon} src={addTaskIcon} alt="Add task Icon" />
 						<p>Add new task</p>
 					</button>
-					{/* <button
-						onClick={() => TasksStore.clearTaskToDoList()}
-						title="Clear queue"
-						className={st.clearQueueBtn}
-					>
-						<img className={st.clearQueueIcon} src={clearQueueIcon} alt="Clear queue" />
-					</button> */}
 				</div>
 			)}
 			{isAddingTask && (

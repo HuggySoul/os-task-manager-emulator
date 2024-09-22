@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import TasksStorage from "../../store/taskStorage";
 import { observer } from "mobx-react-lite";
 
-export const QuantumInput = observer(() => {
+export const QuantumInput = observer(({ setIsAddingQuantum }) => {
 	const [quantum, setQuantum] = useState(1);
 	const [attention, setAttention] = useState(false);
 	const inputRef = useRef(null);
@@ -33,6 +33,7 @@ export const QuantumInput = observer(() => {
 			TasksStorage.quantum = quantum;
 			//пересчитываем максимально возможное количество очередей
 			TasksStorage.setMaxQueueQuantity();
+			setIsAddingQuantum(false);
 		}
 	};
 
@@ -48,35 +49,31 @@ export const QuantumInput = observer(() => {
 
 	return (
 		<div className={st.quantum_block}>
-			<div className={st.quantum}>
-				<input
-					ref={inputRef}
-					type="number"
-					className={`${st.input} ${st.input_time}`}
-					placeholder="quantum"
-					onChange={(e) => {
-						SetQuantum(Number(e.target.value));
-					}}
-				/>
-				<button
+			<input
+				ref={inputRef}
+				type="number"
+				className={st.quantum_input}
+				placeholder="quantum"
+				onChange={(e) => {
+					SetQuantum(Number(e.target.value));
+				}}
+			/>
+			{/* <button
 					onClick={() => {
 						setQuantumStorage();
 					}}
 					className={st.submitBtn}
 				>
 					<img className={st.submitImg} src={inputIcon} alt="Записать квант времени" />
-				</button>
-				<div className={st.currentQuantum}>
-					<p className={st.txt}>{TasksStorage.quantum}</p>
-				</div>
+				</button> */}
+			<div className={st.currentQuantum}>
+				<p className={st.txt}>{TasksStorage.quantum}</p>
 			</div>
-			{attention ? (
+			{/* {attention && (
 				<p className={`${st.txt} ${st.attentionTxt}`}>
 					*The quantum must be greater than zero
 				</p>
-			) : (
-				<></>
-			)}
+			)} */}
 		</div>
 	);
 });

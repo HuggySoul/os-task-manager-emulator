@@ -49,10 +49,8 @@ export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen 
 				style={{ marginTop: "44px" }}
 				className={isListEmpty ? st.empty_list : st.list}
 			>
-				{isNewTaskList() ? (
+				{isNewTaskList() && (
 					<TaskInput isAddingTask={isAddingTask} setIsAddingTask={setIsAddingTask} />
-				) : (
-					<></>
 				)}
 				{isListEmpty ? (
 					<div className={st.txt}>

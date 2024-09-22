@@ -1,9 +1,32 @@
 .quantum_block {
 	display: flex;
-	flex-direction: column;
 	gap: 5px;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+	width: 100%;
+	background-color: var(--background-col);
+	box-shadow: 0 0 2px var(--secondary-col);
+	padding: 5px 10px;
+	border-radius: 12px;
+	z-index: 1;
+}
+
+.quantum {
+	display: flex;
+	gap: 5px;
+	margin-right: 40px;
+}
+
+.quantum_input {
+	width: 40%;
+	border-radius: 10px;
+	padding: 7px;
+	font-size: 14px;
+	font-family: "comfortaa";
+	font-weight: 600;
+	color: var(--text-col);
+	box-shadow: 0 0 1px var(--secondary-col);
 }
 
 .txt {
@@ -14,28 +37,9 @@
 }
 
 .attentionTxt {
+	position: absolute;
 	color: red;
 	font-size: 10px;
-}
-
-.input {
-	border-radius: 20px;
-	padding: 10px;
-	font-size: 14px;
-	font-family: "comfortaa";
-	font-weight: 600;
-	color: var(--text-col);
-	box-shadow: 0 0 3px var(--secondary-col);
-}
-
-.input_time {
-	width: 70px;
-}
-
-.quantum {
-	display: flex;
-	gap: 5px;
-	margin-right: 40px;
 }
 
 .submitBtn {
@@ -50,7 +54,7 @@
 }
 
 .currentQuantum {
-	padding: 10px;
+	padding: 7px;
 	border-radius: 10px;
 	border: 1px solid var(--secondary-col);
 }

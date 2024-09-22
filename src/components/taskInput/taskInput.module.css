@@ -41,13 +41,13 @@
 .addTaskBtn:hover {
 	scale: 1.03;
 }
-.internalAddTaskBtn{
+.internalAddTaskBtn {
 	padding: 0;
 	background-color: none;
 	box-shadow: none;
 }
 
-.clearQueueBtn{
+.clearQueueBtn {
 	border-radius: 10px;
 	background-color: var(--background-col);
 	box-shadow: 0 0 2px var(--secondary-col);
@@ -57,10 +57,9 @@
 	scale: 1.03;
 }
 
-.clearQueueIcon{
+.clearQueueIcon {
 	width: 25px;
 }
-
 
 .newTask {
 	background-color: var(--background-col);
@@ -74,7 +73,7 @@
 	animation: mountNewTask 0.2s ease-in-out;
 }
 
-.topBtns{
+.topBtns {
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
@@ -83,7 +82,7 @@
 
 @keyframes mountNewTask {
 	0% {
-		scale: 0.85;
+		scale: 0.95;
 	}
 
 	100% {
@@ -99,4 +98,3 @@
 .addTaskIcon {
 	width: 25px;
 }
-

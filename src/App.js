@@ -43,7 +43,7 @@ const App = observer(() => {
 					) : (
 						<></>
 					)} */}
-					<QuantumInput />
+					{/* <QuantumInput /> */}
 					<Btn
 						title={"Execute"}
 						action={taskScheduler.execute}
