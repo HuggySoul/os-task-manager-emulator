@@ -2,7 +2,7 @@ import st from "./progressBar.module.css";
 
 export const ProgressBar = ({ percentage, taskName }) => {
 	return (
-		<div className={st.task}>
+		<li className={st.task}>
 			<div className={st.bar}>
 				<p className={st.txt}>{taskName}</p>
 				<div className={st.progress_bar}>
@@ -12,6 +12,6 @@ export const ProgressBar = ({ percentage, taskName }) => {
 				</div>
 			</div>
 			<span className={st.progress_text}>{`${percentage}%`}</span>
-		</div>
+		</li>
 	);
 };

@@ -3,12 +3,10 @@ import { ProgressBar } from "../progressBar/progressBar";
 import TasksStore from "../../store/taskStorage";
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
-// import addIcon from "./assets/addIcon.svg";
 import { QuantumInput } from "../quantumInput/quantumInput";
 
 export const ProcessList = observer(() => {
 	const [isListEmpty, setIsListEmpty] = useState(true);
-	// const [isAddingQuantum, setIsAddingQuantum] = useState(false);
 
 	useEffect(() => {
 		checkEmpty();
@@ -30,13 +28,13 @@ export const ProcessList = observer(() => {
 						<p className={st.empty_txt}>will be located here</p>
 					</>
 				) : (
-					<div className={st.bars}>
+					<ul className={st.bars}>
 						{TasksStore.tasksInProcess.map((queue) => {
 							return queue.map((task) => {
 								return <ProgressBar percentage={task.percentage} taskName={task.name} />;
 							});
 						})}
-					</div>
+					</ul>
 				)}
 			</div>
 		</div>

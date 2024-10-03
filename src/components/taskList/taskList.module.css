@@ -17,6 +17,7 @@
 	box-shadow: 0 0 3px var(--secondary-col);
 	border-radius: 25px;
 	background-color: var(--modal-col);
+	margin-top: 44px;
 }
 
 .clearQueueBtn {
@@ -57,6 +58,7 @@
 	border-radius: 25px;
 	box-shadow: 0 0 3px var(--secondary-col);
 	background-color: var(--modal-col);
+	margin-top: 44px;
 }
 
 .txt {
@@ -86,6 +88,7 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 35px 5px;
+	margin-top: 44px;
 }
 
 @media (max-width: 1330px) {

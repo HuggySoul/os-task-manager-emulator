@@ -10,13 +10,13 @@ export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen 
 	const [isListEmpty, setIsListEmpty] = useState(true);
 	const [isAddingTask, setIsAddingTask] = useState(false);
 
-	const checkEmpty = () => {
-		if (tasks.length) setIsListEmpty(false);
+	const isEmpty = (list) => {
+		if (list.length) setIsListEmpty(false);
 		else setIsListEmpty(true);
 	};
 
 	useEffect(() => {
-		checkEmpty();
+		isEmpty(tasks);
 	}, [tasks.length]);
 
 	const isNewTaskList = () => {
@@ -45,10 +45,7 @@ export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen 
 					/>
 				</button>
 			)}
-			<div
-				style={{ marginTop: "44px" }}
-				className={isListEmpty ? st.empty_list : st.list}
-			>
+			<div className={isListEmpty ? st.empty_list : st.list}>
 				{isNewTaskList() && (
 					<TaskInput isAddingTask={isAddingTask} setIsAddingTask={setIsAddingTask} />
 				)}
@@ -58,11 +55,11 @@ export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen 
 						<p className={st.empty_txt}>will be located here</p>
 					</div>
 				) : (
-					<div style={{ marginTop: "40px" }} className={st.tasks}>
+					<ul className={st.tasks}>
 						{tasks.map((task, id) => (
 							<Task name={task.name} timeToDo={task.time} key={id} />
 						))}
-					</div>
+					</ul>
 				)}
 			</div>
 		</div>

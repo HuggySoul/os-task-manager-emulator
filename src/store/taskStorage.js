@@ -7,7 +7,7 @@ class TaskStorage {
 	completedTasks = []; //завершённые задачи
 	tasksInProcess = []; //список очередей с выполняемыми задачами
 
-	quantum = 1; // квант
+	quantum = 100; // квант
 	//флаг необходимый для корректного изменения состояния при изменениях в tasksInProcess
 	changeFlag = 0;
 

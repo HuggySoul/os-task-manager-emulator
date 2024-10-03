@@ -1,5 +1,4 @@
 import st from "./app.module.css";
-import { QuantumInput } from "./components/quantumInput/quantumInput";
 import { ProcessList } from "./components/processList/processList";
 import taskScheduler from "./features/taskScheduler";
 import { TestGenerator } from "./components/testGenerator/testGenerator";
@@ -11,8 +10,6 @@ import { observer } from "mobx-react-lite";
 import { Modal } from "./shared/UI";
 
 const App = observer(() => {
-	//флаг для открытия окна с генерацией тестов
-	const [isGenVisible, setIsGenVisible] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
 	return (
@@ -38,12 +35,6 @@ const App = observer(() => {
 					/>
 				</div>
 				<div className={st.start_btns}>
-					{/* {isGenVisible ? (
-						<TestGenerator openBtnRef={testBtnRef} setVisibleFlag={setIsGenVisible} />
-					) : (
-						<></>
-					)} */}
-					{/* <QuantumInput /> */}
 					<Btn
 						title={"Execute"}
 						action={taskScheduler.execute}
@@ -54,12 +45,6 @@ const App = observer(() => {
 						action={taskScheduler.autoComplete}
 						color={"var(--primary-col)"}
 					/>
-					{/* <Btn
-						btnRef={testBtnRef}
-						title={"Auto test-gen"}
-						action={() => setIsGenVisible(!isGenVisible)}
-						color={"#ff6f61"}
-					/> */}
 				</div>
 			</main>
 		</>

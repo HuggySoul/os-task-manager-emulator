@@ -20,7 +20,6 @@
 	font-family: "comfortaa";
 	font-weight: 600;
 	color: var(--text-col);
-	/* box-shadow: 0 0 1px var(--secondary-col); */
 }
 
 .addQuantumBtn {
@@ -105,9 +104,10 @@
 .currentQuantum {
 	padding: 7px;
 	border-radius: 10px;
-	border: 1px solid var(--secondary-col);
 	min-width: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: var(--background-col);
+	box-shadow: 0 0 2px var(--secondary-col);
 }
