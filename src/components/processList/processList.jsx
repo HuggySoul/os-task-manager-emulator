@@ -22,29 +22,21 @@ export const ProcessList = observer(() => {
 	return (
 		<div className={st.processor}>
 			<div className={isListEmpty ? st.empty_List : st.list}>
-				<div className={st.topBtns}>
-					{/* {!isAddingQuantum && (
-						<button
-							onClick={() => setIsAddingQuantum(!isAddingQuantum)}
-							className={st.addQuantumBtn}
-						>
-							<img className={st.addIcon} src={addIcon} alt="Add quantum" />
-							<p>Set quantum</p>
-						</button>
-					)} */}
-				</div>
 				<QuantumInput />
+
 				{isListEmpty ? (
 					<>
 						<p className={st.empty_txt}>The processes that are running</p>
 						<p className={st.empty_txt}>will be located here</p>
 					</>
 				) : (
-					TasksStore.tasksInProcess.map((queue) => {
-						return queue.map((task) => {
-							return <ProgressBar percentage={task.percentage} taskName={task.name} />;
-						});
-					})
+					<div className={st.bars}>
+						{TasksStore.tasksInProcess.map((queue) => {
+							return queue.map((task) => {
+								return <ProgressBar percentage={task.percentage} taskName={task.name} />;
+							});
+						})}
+					</div>
 				)}
 			</div>
 		</div>
