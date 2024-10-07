@@ -1,6 +1,4 @@
 import st from "./quantumInput.module.css";
-import addIcon from "./assets/addIcon.svg";
-import cpuIcon from "./assets/CPU.svg";
 import { useState, useEffect } from "react";
 import TasksStorage from "../../store/taskStorage";
 import { observer } from "mobx-react-lite";
@@ -58,14 +56,19 @@ export const QuantumInput = observer(() => {
 					/>
 				)}
 				<button onClick={(e) => setQuantumStorage(e)}>
-					<img className={st.addIcon} src={addIcon} alt="Add quantum" />
+					<img className={st.addIcon} src={"./icons/add.svg"} alt="Add quantum" />
 				</button>
 			</button>
 			<div className={st.quantum}>
 				<div title="Current quantum" className={st.currentQuantum}>
 					<p className={st.txt}>{TasksStorage.quantum}</p>
 				</div>
-				<img title="Current quantum" className={st.cpuIcon} src={cpuIcon} alt="Quantum" />
+				<img
+					title="Current quantum"
+					className={st.cpuIcon}
+					src={"./icons/CPU.svg"}
+					alt="Quantum"
+				/>
 			</div>
 			{attention && (
 				<p className={`${st.txt} ${st.attentionTxt}`}>

@@ -1,8 +1,7 @@
 import st from "./testGenerator.module.css";
 import TasksStore from "../../store/taskStorage";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Btn } from "../../shared/UI";
-import taskImg from "./assets/tasksIcon.svg";
 
 export const TestGenerator = ({ setIsVisible, openBtnRef }) => {
 	const [taskQuantity, setTaskQuantity] = useState(1);
@@ -63,7 +62,7 @@ export const TestGenerator = ({ setIsVisible, openBtnRef }) => {
 					/>
 					<p className={`${st.txt} ${st.txt_small}`}>(MAX: 50 tasks)</p>
 				</div>
-				{/* <img className={st.tasksIcon} src={taskImg} alt="Tasks" /> */}
+
 				{taskAttention && (
 					<p className={`${st.txt} ${st.txt_small} ${st.txt_attention}`}>
 						*Enter correct task quantity

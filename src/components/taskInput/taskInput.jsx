@@ -1,5 +1,4 @@
 import st from "./taskInput.module.css";
-import addTaskIcon from "./assets/addTaskIcon.svg";
 import TasksStore from "../../store/taskStorage";
 import { useRef } from "react";
 
@@ -38,7 +37,7 @@ export const TaskInput = ({ isAddingTask, setIsAddingTask }) => {
 						onClick={() => setIsAddingTask(!isAddingTask)}
 						className={st.addTaskBtn}
 					>
-						<img className={st.addTaskIcon} src={addTaskIcon} alt="Add task Icon" />
+						<img className={st.addTaskIcon} src={"./icons/add.svg"} alt="Add task Icon" />
 						<p>Add new task</p>
 					</button>
 				</div>
@@ -66,7 +65,11 @@ export const TaskInput = ({ isAddingTask, setIsAddingTask }) => {
 							onClick={addTask}
 							className={`${st.addTaskBtn} ${st.internalAddTaskBtn}`}
 						>
-							<img className={st.addTaskIcon} src={addTaskIcon} alt="Add task Icon" />
+							<img
+								className={st.addTaskIcon}
+								src={"./icons/add.svg"}
+								alt="Add task Icon"
+							/>
 						</button>
 					</div>
 				</div>

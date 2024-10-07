@@ -3,8 +3,6 @@ import { Task } from "../task/task";
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { TaskInput } from "../taskInput/taskInput";
-import clearQueueIcon from "./assets/clearQueueIcon.svg";
-import generateTasksIcon from "./assets/generateIcon.svg";
 
 export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen }) => {
 	const [isListEmpty, setIsListEmpty] = useState(true);
@@ -27,7 +25,11 @@ export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen 
 		<div className={st.taskList}>
 			{(!isAddingTask || !isNewTaskList()) && (
 				<button onClick={clearList} title="Delete all tasks" className={st.clearQueueBtn}>
-					<img className={st.clearQueueIcon} src={clearQueueIcon} alt="Clear queue" />
+					<img
+						className={st.clearQueueIcon}
+						src={"./icons/clearQueue.svg"}
+						alt="Clear queue"
+					/>
 				</button>
 			)}
 			{!isAddingTask && isNewTaskList() && (
@@ -40,7 +42,7 @@ export const TaskList = observer(({ tasks, tasksType, clearList, setIsModalOpen 
 				>
 					<img
 						className={st.clearQueueIcon}
-						src={generateTasksIcon}
+						src={"./icons/generate.svg"}
 						alt="Generate tasks"
 					/>
 				</button>
