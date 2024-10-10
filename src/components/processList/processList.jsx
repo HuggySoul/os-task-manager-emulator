@@ -29,11 +29,16 @@ export const ProcessList = observer(() => {
 					</>
 				) : (
 					<ul className={st.bars}>
-						{TasksStore.tasksInProcess.map((queue) => {
+						{TasksStore.tasksInProcess.map((task, i) => {
+							return (
+								<ProgressBar key={i} percentage={task.percentage} taskName={task.name} />
+							);
+						})}
+						{/* {TasksStore.tasksInProcess.map((queue) => {
 							return queue.map((task) => {
 								return <ProgressBar percentage={task.percentage} taskName={task.name} />;
 							});
-						})}
+						})} */}
 					</ul>
 				)}
 			</div>

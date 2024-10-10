@@ -5,7 +5,9 @@ class TaskStorage {
 	MAX_QUEUE_QUANTITY = 1; //максимальное количество очередей для текущего набора задач и кванта
 	MAX_TIME = 1; //время максимального выполнения задачи в текущем списке
 	completedTasks = []; //завершённые задачи
-	tasksInProcess = []; //список очередей с выполняемыми задачами
+
+	tasksInProcess = []; //список задач, выполняемых в данный момент
+	indexesOfTasksInProcess = []; //список очередей с индексами задач для выполнения
 
 	quantum = 100; // квант
 	//флаг необходимый для корректного изменения состояния при изменениях в tasksInProcess
@@ -20,11 +22,12 @@ class TaskStorage {
 	}
 
 	addNewTask(task) {
+		this.setMaxTime(task.time);
 		this.tasksToDo.push(task);
 	}
 
 	addCompletedTask(task) {
-		this.tasksToDo.push(task);
+		this.completedTasks.push(task);
 	}
 
 	clearCompletedTaskList() {
@@ -33,7 +36,17 @@ class TaskStorage {
 
 	clearTaskToDoList() {
 		this.tasksToDo = [];
-		this.MAX_TIME = 0;
+		this.resetMaxTime();
+	}
+
+	addTaskInProcess(task) {
+		this.tasksInProcess.push(task);
+	}
+
+	removeTaskFromProcess(index) {
+		//удаляем через delete, чтобы избежать переиндексации
+		//и позволить движку оптимальнее работать с массивом
+		delete this.tasksInProcess[index];
 	}
 
 	//определяем максимальное количество очередей
@@ -44,6 +57,14 @@ class TaskStorage {
 	//задаём максимальное время текущего списка задач
 	setMaxTime(time) {
 		if (Number(time) > this.MAX_TIME) this.MAX_TIME = time;
+	}
+
+	resetMaxTime() {
+		this.MAX_TIME = 0;
+	}
+
+	setQuantum(quantum) {
+		this.quantum = quantum;
 	}
 }
 
