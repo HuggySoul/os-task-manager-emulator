@@ -12,7 +12,7 @@ class TaskScheduler {
 		let task = TaskStorage.tasksToDo.shift();
 		task.percentage = 0; // формируем свойство, показывающее степень выполненности процесса
 		const taskIndex = TaskStorage.tasksInProcess.push(task) - 1;
-		console.log("task in getOneTask ", task);
+		console.log("index", taskIndex);
 
 		if (!TaskStorage.indexesOfTasksInProcess[0])
 			TaskStorage.indexesOfTasksInProcess.push([]);
@@ -20,27 +20,26 @@ class TaskScheduler {
 		TaskStorage.indexesOfTasksInProcess[0].push(taskIndex); //помещаем индекс в первую очередь
 	};
 
-	//понижает очередь задачи
-	downGradeTaskQueue = (task, queueNum) => {
+	//понижает очередь индекса задачи
+	downGradeIndexQueue = (index, queueNum) => {
 		const storage = TaskStorage.indexesOfTasksInProcess;
 		const nextQueue = queueNum + 1;
 		//добавляет очередь, если закончились
 		if (!storage[nextQueue]) storage.push([]);
 
-		storage[nextQueue].push(task);
+		storage[nextQueue].push(index);
 	};
 
 	//Задаём приоритетную очередь
 	setCurrentQueue(queueNum) {
 		for (let queue = queueNum; queue < TaskStorage.MAX_QUEUE_QUANTITY; queue++) {
-			//обнуляем максимальное время, чтобы избежать ошибок при работе без перезагрузки web-страницы
 			if (queue === TaskStorage.MAX_QUEUE_QUANTITY - 2) {
 				TaskStorage.resetMaxTime();
 			}
 			//проверка на наличие очередей
 			if (TaskStorage.indexesOfTasksInProcess[queue]) {
 				//проверка на наличие элемента в очереди
-				if (TaskStorage.indexesOfTasksInProcess[queue][0]) {
+				if (TaskStorage.indexesOfTasksInProcess[queue][0] !== undefined) {
 					this.QueueNum = queue;
 					return queue;
 				}
@@ -51,12 +50,10 @@ class TaskScheduler {
 	//выполнение одной задачи на величину кванта
 	taskProcessing = (queueNum) => {
 		//проверяем, остались ли в текущей очереди элементы
-		if (!TaskStorage.tasksInProcess[queueNum][0]) {
-			// На данном этапе проблема в том, что tasksInProcess неопределённо
-			console.log(TaskStorage.tasksInProcess[queueNum][0]);
+		if (TaskStorage.indexesOfTasksInProcess[queueNum]?.[0] === undefined) {
 			queueNum = this.setCurrentQueue(queueNum);
 			//действия после прохождения всех очередей
-			if (!queueNum) {
+			if (queueNum === null) {
 				TaskStorage.indexesOfTasksInProcess = [];
 				this.QueueNum = 0;
 				TaskStorage.resetMaxTime();
@@ -70,7 +67,7 @@ class TaskScheduler {
 		task.percentage = parseFloat((task.percentage + oneTimeFraction * 100).toFixed(2));
 		console.log(task);
 		if (100 - task.percentage > 0.01) {
-			this.downGradeTaskQueue(task, queueNum);
+			this.downGradeIndexQueue(index, queueNum);
 		} else {
 			task.percentage = 100;
 			TaskStorage.completedTasks.push(task);
@@ -89,7 +86,8 @@ class TaskScheduler {
 	autoComplete = () => {
 		let timerId = setInterval(() => {
 			this.execute();
-			if (!TaskStorage.tasksInProcess[0]) clearInterval(timerId);
+			if (!TaskStorage.tasksInProcess.some((el) => el !== undefined))
+				clearInterval(timerId);
 		}, 150);
 	};
 }
