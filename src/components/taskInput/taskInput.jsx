@@ -20,8 +20,6 @@ export const TaskInput = ({ isAddingTask, setIsAddingTask }) => {
 		const time = timeInput.current.value;
 		if (time && name) {
 			setIsAddingTask(false);
-			TasksStore.setMaxTime(time);
-			TasksStore.setMaxQueueQuantity();
 			TasksStore.addNewTask({
 				name: name,
 				time: time,

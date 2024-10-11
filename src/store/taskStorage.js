@@ -10,8 +10,6 @@ class TaskStorage {
 	indexesOfTasksInProcess = []; //список очередей с индексами задач для выполнения
 
 	quantum = 100; // квант
-	//флаг необходимый для корректного изменения состояния при изменениях в tasksInProcess
-	changeFlag = 0;
 
 	constructor() {
 		makeAutoObservable(this);
@@ -23,6 +21,7 @@ class TaskStorage {
 
 	addNewTask(task) {
 		this.setMaxTime(task.time);
+		this.setMaxQueueQuantity();
 		this.tasksToDo.push(task);
 	}
 

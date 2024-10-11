@@ -1,28 +1,22 @@
 import st from "./processList.module.css";
 import { ProgressBar } from "../progressBar/progressBar";
 import TasksStore from "../../store/taskStorage";
-import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { QuantumInput } from "../quantumInput/quantumInput";
 
 export const ProcessList = observer(() => {
-	const [isListEmpty, setIsListEmpty] = useState(true);
-
-	useEffect(() => {
-		checkEmpty();
-	}, [TasksStore.changeFlag]);
-
-	const checkEmpty = () => {
-		if (TasksStore.tasksInProcess.length) setIsListEmpty(false);
-		else setIsListEmpty(true);
+	const isAnyProcessTasks = () => {
+		return TasksStore.tasksInProcess.some((task) => task !== undefined);
 	};
+
+	const isEmpty = isAnyProcessTasks();
 
 	return (
 		<div className={st.processor}>
-			<div className={isListEmpty ? st.empty_List : st.list}>
+			<div className={!isEmpty ? st.empty_List : st.list}>
 				<QuantumInput />
 
-				{isListEmpty ? (
+				{!isEmpty ? (
 					<>
 						<p className={st.empty_txt}>The processes that are running</p>
 						<p className={st.empty_txt}>will be located here</p>
@@ -34,11 +28,6 @@ export const ProcessList = observer(() => {
 								<ProgressBar key={i} percentage={task.percentage} taskName={task.name} />
 							);
 						})}
-						{/* {TasksStore.tasksInProcess.map((queue) => {
-							return queue.map((task) => {
-								return <ProgressBar percentage={task.percentage} taskName={task.name} />;
-							});
-						})} */}
 					</ul>
 				)}
 			</div>

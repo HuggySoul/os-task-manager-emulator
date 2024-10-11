@@ -79,7 +79,6 @@ class TaskScheduler {
 	execute = () => {
 		this.getOneNewTask();
 		this.taskProcessing(this.QueueNum);
-		TaskStorage.makeChange(); // необходимо для отслеживания изменений внутри очередей
 	};
 
 	//Выполнить все доступные задачи
