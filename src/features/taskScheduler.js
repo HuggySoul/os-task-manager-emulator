@@ -65,7 +65,6 @@ class TaskScheduler {
 		const task = TaskStorage.tasksInProcess[index];
 		let oneTimeFraction = TaskStorage.quantum / task.time;
 		task.percentage = parseFloat((task.percentage + oneTimeFraction * 100).toFixed(2));
-		console.log(task);
 		if (100 - task.percentage > 0.01) {
 			this.downGradeIndexQueue(index, queueNum);
 		} else {
@@ -77,6 +76,12 @@ class TaskScheduler {
 
 	//Выполнить одну итерацию(пошаговое выполнение) обработки задач
 	execute = () => {
+		if (
+			!TaskStorage.tasksInProcess.some((el) => el !== undefined) &&
+			TaskStorage.tasksToDo.length === 0
+		)
+			return;
+
 		this.getOneNewTask();
 		this.taskProcessing(this.QueueNum);
 	};
@@ -85,7 +90,10 @@ class TaskScheduler {
 	autoComplete = () => {
 		let timerId = setInterval(() => {
 			this.execute();
-			if (!TaskStorage.tasksInProcess.some((el) => el !== undefined))
+			if (
+				!TaskStorage.tasksInProcess.some((el) => el !== undefined) &&
+				TaskStorage.tasksToDo.length === 0
+			)
 				clearInterval(timerId);
 		}, 150);
 	};
