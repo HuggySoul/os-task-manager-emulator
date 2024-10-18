@@ -8,6 +8,10 @@
 	--background-col: #ffff;
 	--modal-col: rgba(247, 247, 247, 1);
 	--primary-blue-col: rgba(0, 153, 255, 1);
+	--warning-back-col: #ffe9c4;
+	--warning-col: #daaa4d;
+	--z-index-modal: 10;
+	--z-index-popover: 20;
 }
 
 /* Reset and base styles  */
@@ -61,6 +65,13 @@ h1 {
 
 p {
 	font-size: 18px;
+	font-family: "Comfortaa";
+	font-weight: 600;
+	color: var(--text-col);
+	margin: 0 !important;
+}
+span {
+	font-size: 14px;
 	font-family: "Comfortaa";
 	font-weight: 600;
 	color: var(--text-col);

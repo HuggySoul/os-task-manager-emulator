@@ -8,9 +8,11 @@ import { TaskList } from "./components/taskList/taskList";
 import TasksStore from "./store/taskStorage";
 import { observer } from "mobx-react-lite";
 import { Modal } from "./shared/UI";
+import { Warning } from "./shared/UI";
 
 const App = observer(() => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isWarning, setIsWarning] = useState(false);
 	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
 	return (
 		<>
@@ -19,6 +21,11 @@ const App = observer(() => {
 			</Modal>
 
 			<main className={st.main}>
+				<Warning
+					messageTxt={"Warning message!"}
+					isOpen={isWarning}
+					setIsOpen={setIsWarning}
+				/>
 				<div className={st.tasks_menu}>
 					<TaskList
 						setIsModalOpen={setIsModalOpen}

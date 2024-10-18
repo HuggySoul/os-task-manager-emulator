@@ -1,0 +1,58 @@
+.warning {
+	position: absolute;
+	top: 40px;
+	right: 10px;
+	background-color: var(--warning-back-col);
+	border-radius: 10px 20px 20px 10px;
+	min-width: 400px;
+	z-index: var(--z-index-popover);
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 0 2px var(--secondary-col);
+	gap: 20px;
+	padding-right: 15px;
+	align-items: center;
+	animation: mountWarning 0.2s ease-in-out;
+}
+
+@keyframes mountWarning {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+.stripe {
+	border-radius: 10px 0px 0px 10px;
+	width: 10px;
+	background-color: var(--warning-col);
+	position: absolute;
+	z-index: calc(var(--z-index-popover)+ 1);
+	left: 0px;
+	top: 0;
+	height: 70px;
+}
+
+.info {
+	display: flex;
+	gap: 10px;
+	padding: 10px 10px 10px 15px;
+	position: relative;
+}
+
+.warningText {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.closeBtn {
+	border-radius: 20px;
+	height: fit-content;
+	padding: 5px;
+}
+.closeBtn:hover {
+	scale: 1.1;
+}
