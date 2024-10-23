@@ -12,7 +12,6 @@ class TaskScheduler {
 		let task = TaskStorage.tasksToDo.shift();
 		task.percentage = 0; // формируем свойство, показывающее степень выполненности процесса
 		const taskIndex = TaskStorage.tasksInProcess.push(task) - 1;
-		console.log("index", taskIndex);
 
 		if (!TaskStorage.indexesOfTasksInProcess[0])
 			TaskStorage.indexesOfTasksInProcess.push([]);

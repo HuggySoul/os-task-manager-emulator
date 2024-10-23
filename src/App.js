@@ -2,7 +2,7 @@ import st from "./app.module.css";
 import { ProcessList } from "./components/processList/processList";
 import taskScheduler from "./features/taskScheduler";
 import { TestGenerator } from "./components/testGenerator/testGenerator";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Btn } from "./shared/UI";
 import { TaskList } from "./components/taskList/taskList";
 import TasksStore from "./store/taskStorage";
@@ -12,19 +12,17 @@ import { Warning } from "./shared/UI";
 
 const App = observer(() => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [isWarning, setIsWarning] = useState(false);
-	const testBtnRef = useRef(null); //ссылка нужна для логики закрытия окна генерации тестов
+
 	return (
 		<>
 			<Modal isOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-				<TestGenerator openBtnRef={testBtnRef} setIsVisible={setIsModalOpen} />
+				<TestGenerator setIsVisible={setIsModalOpen} />
 			</Modal>
 
 			<main className={st.main}>
 				<Warning
-					messageTxt={"Warning message!"}
-					isOpen={isWarning}
-					setIsOpen={setIsWarning}
+					messageTxt={TasksStore.warningMsg}
+					closeWarning={() => TasksStore.clearWarning()}
 				/>
 				<div className={st.tasks_menu}>
 					<TaskList

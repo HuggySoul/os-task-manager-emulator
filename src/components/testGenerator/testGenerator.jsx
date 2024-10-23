@@ -3,7 +3,7 @@ import TasksStore from "../../store/taskStorage";
 import { useState, useEffect } from "react";
 import { Btn } from "../../shared/UI";
 
-export const TestGenerator = ({ setIsVisible, openBtnRef }) => {
+export const TestGenerator = ({ setIsVisible }) => {
 	const [taskQuantity, setTaskQuantity] = useState(1);
 	const [timeMin, setTimeMin] = useState(1);
 	const [timeMax, setTaskTimeMax] = useState(1);
@@ -101,12 +101,7 @@ export const TestGenerator = ({ setIsVisible, openBtnRef }) => {
 					}}
 					color={"#ff6f61"}
 				/>
-				<Btn
-					title={"Generate"}
-					action={generateTasks}
-					color={"var(--primary-col)"}
-					btnRef={openBtnRef}
-				/>
+				<Btn title={"Generate"} action={generateTasks} color={"var(--primary-col)"} />
 			</div>
 		</div>
 	);

@@ -2,6 +2,7 @@ import st from "./quantumInput.module.css";
 import { useState, useEffect } from "react";
 import TasksStorage from "../../store/taskStorage";
 import { observer } from "mobx-react-lite";
+import taskStorage from "../../store/taskStorage";
 
 export const QuantumInput = observer(() => {
 	const [quantum, setQuantum] = useState(1);
@@ -35,10 +36,18 @@ export const QuantumInput = observer(() => {
 		if (e.code === "Escape") setIsAddingQuantum(false);
 		else if (e.code === "Enter" || e.code === "NumpadEnter") setQuantumStorage(e);
 	};
+
+	const startEditing = () => {
+		if (TasksStorage.tasksInProcess.some((task) => task !== undefined)) {
+			taskStorage.setWarning("You can't change the quantum while the process is running");
+		} else {
+			setIsAddingQuantum(true);
+		}
+	};
 	return (
 		<div className={st.quantum_block}>
 			<button
-				onClick={() => setIsAddingQuantum(true)}
+				onClick={startEditing}
 				className={isAddingQuantum ? st.editingBtnMode : st.addQuantumBtn}
 			>
 				{!isAddingQuantum && <p>Set quantum</p>}

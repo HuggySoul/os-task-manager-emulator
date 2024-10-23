@@ -8,8 +8,8 @@ class TaskStorage {
 
 	tasksInProcess = []; //список задач, выполняемых в данный момент
 	indexesOfTasksInProcess = []; //список очередей с индексами задач для выполнения
-
 	quantum = 100; // квант
+	warningMsg = ""; // текст предупреждения
 
 	constructor() {
 		makeAutoObservable(this);
@@ -64,6 +64,14 @@ class TaskStorage {
 
 	setQuantum(quantum) {
 		this.quantum = quantum;
+	}
+
+	setWarning(massage) {
+		this.warningMsg = massage;
+	}
+
+	clearWarning() {
+		this.warningMsg = "";
 	}
 }
 

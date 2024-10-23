@@ -1,6 +1,6 @@
 .warning {
 	position: absolute;
-	top: 40px;
+	top: 10px;
 	right: 10px;
 	background-color: var(--warning-back-col);
 	border-radius: 10px 20px 20px 10px;
@@ -8,11 +8,12 @@
 	z-index: var(--z-index-popover);
 	display: flex;
 	justify-content: space-between;
-	box-shadow: 0 0 2px var(--secondary-col);
+	box-shadow: 0 0 4px var(--secondary-col);
 	gap: 20px;
 	padding-right: 15px;
 	align-items: center;
 	animation: mountWarning 0.2s ease-in-out;
+	transition: transform 0.2s ease-in-out;
 }
 
 @keyframes mountWarning {
@@ -22,6 +23,10 @@
 	100% {
 		transform: translateX(0%);
 	}
+}
+
+.hideWarning {
+	transform: translateX(110%);
 }
 
 .stripe {

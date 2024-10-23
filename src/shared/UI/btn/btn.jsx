@@ -1,6 +1,6 @@
 import st from "./btn.module.css";
 
-export const Btn = ({ title, action, color, btnRef }) => {
+export const Btn = ({ title, action, color, btnRef = null }) => {
 	return (
 		<button
 			ref={btnRef}
